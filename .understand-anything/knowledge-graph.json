@@ -1,0 +1,6262 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "supertonic",
+    "languages": [
+      "cmake",
+      "config",
+      "cpp",
+      "csharp",
+      "css",
+      "dart",
+      "go",
+      "html",
+      "java",
+      "javascript",
+      "json",
+      "markdown",
+      "python",
+      "ruby",
+      "rust",
+      "shell",
+      "swift",
+      "toml",
+      "xml",
+      "yaml"
+    ],
+    "frameworks": [
+      "NumPy",
+      "ONNX Runtime",
+      "ONNX Runtime (ort)",
+      "Serde",
+      "Vite",
+      "soundfile"
+    ],
+    "description": "Supertonic is a lightning-fast, on-device multilingual text-to-speech SDK that runs entirely locally via ONNX Runtime, with no cloud calls; this repository collects ready-to-use ONNX Runtime usage examples for the Supertonic TTS model across 11 language/platform targets (Python, Node.js, browser via Vite/WebGPU, Java, C++, C#, Go, Swift/iOS, Rust, and Flutter).",
+    "analyzedAt": "2026-05-18T23:27:27.038423+00:00",
+    "gitCommitHash": "67175af735efeefda3d33751634ef997e272413d"
+  },
+  "nodes": [
+    {
+      "id": "config:.gitattributes",
+      "type": "config",
+      "name": ".gitattributes",
+      "filePath": ".gitattributes",
+      "summary": "Git attributes configuration controlling how line endings and file diffing are handled for files in the repository.",
+      "tags": [
+        "configuration",
+        "git",
+        "version-control"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "README.md",
+      "summary": "Top-level project README documenting Supertonic \u2014 a lightning-fast on-device multilingual TTS SDK \u2014 with quick-start examples across all supported language/platform targets and ONNX Runtime integration.",
+      "tags": [
+        "documentation",
+        "entry-point",
+        "overview",
+        "tts",
+        "multilingual"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:test_all.sh",
+      "type": "file",
+      "name": "test_all.sh",
+      "filePath": "test_all.sh",
+      "summary": "Top-level shell harness that builds and exercises every per-language Supertonic example (cpp, csharp, go, etc.), recording timings, pass/fail counts and aggregated statistics.",
+      "tags": [
+        "entry-point",
+        "test",
+        "ci-cd",
+        "shell-script",
+        "harness"
+      ],
+      "complexity": "complex",
+      "languageNotes": "Bash script with reusable show_stats and run_test helpers to drive multi-language regression tests."
+    },
+    {
+      "id": "function:test_all.sh:show_stats",
+      "type": "function",
+      "name": "show_stats",
+      "filePath": "test_all.sh",
+      "lineRange": [
+        142,
+        170
+      ],
+      "summary": "Prints aggregated test statistics (pass/fail counts and elapsed time) at the end of a test run.",
+      "tags": [
+        "reporting",
+        "stats",
+        "shell"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:test_all.sh:run_test",
+      "type": "function",
+      "name": "run_test",
+      "filePath": "test_all.sh",
+      "lineRange": [
+        173,
+        202
+      ],
+      "summary": "Executes a single language-target test, capturing exit status and timing, then updates the global pass/fail counters.",
+      "tags": [
+        "test-runner",
+        "timing",
+        "shell"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:cpp/CMakeLists.txt",
+      "type": "config",
+      "name": "CMakeLists.txt",
+      "filePath": "cpp/CMakeLists.txt",
+      "summary": "CMake build configuration for the C++ Supertonic example that links against ONNX Runtime and builds the example_onnx executable from helper.cpp and example_onnx.cpp.",
+      "tags": [
+        "configuration",
+        "cmake",
+        "build-system",
+        "cpp"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:cpp/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "cpp/README.md",
+      "summary": "Documentation for the C++ Supertonic example covering build prerequisites, CMake setup, ONNX Runtime linkage and how to run the example_onnx binary.",
+      "tags": [
+        "documentation",
+        "cpp",
+        "build-instructions"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:cpp/example_onnx.cpp",
+      "type": "file",
+      "name": "example_onnx.cpp",
+      "filePath": "cpp/example_onnx.cpp",
+      "summary": "C++ entry-point program that parses CLI arguments, loads the Supertonic TTS pipeline via Helper functions and synthesises speech from text using ONNX Runtime.",
+      "tags": [
+        "entry-point",
+        "cpp",
+        "cli",
+        "tts-example"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:cpp/example_onnx.cpp:Args",
+      "type": "class",
+      "name": "Args",
+      "filePath": "cpp/example_onnx.cpp",
+      "lineRange": [
+        10,
+        22
+      ],
+      "summary": "POD struct holding parsed CLI arguments (onnx_dir, steps, speed, voice style, text, language, output dir, batch flag) for the C++ example.",
+      "tags": [
+        "data-model",
+        "cli-args",
+        "cpp"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:cpp/example_onnx.cpp:parseArgs",
+      "type": "function",
+      "name": "parseArgs",
+      "filePath": "cpp/example_onnx.cpp",
+      "lineRange": [
+        35,
+        50
+      ],
+      "summary": "Parses argc/argv into an Args struct, recognising flags for ONNX model directory, total steps, speed, batch mode and voice style.",
+      "tags": [
+        "cli",
+        "argument-parsing",
+        "cpp"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:cpp/example_onnx.cpp:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "cpp/example_onnx.cpp",
+      "lineRange": [
+        52,
+        121
+      ],
+      "summary": "C++ program entry point that initialises ONNX Runtime, loads the TextToSpeech pipeline and voice style, runs single or batch synthesis and writes WAV output.",
+      "tags": [
+        "entry-point",
+        "main",
+        "orchestration",
+        "tts"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:cpp/helper.cpp",
+      "type": "file",
+      "name": "helper.cpp",
+      "filePath": "cpp/helper.cpp",
+      "summary": "C++ implementation of the canonical Supertonic TTS pipeline: text preprocessing, Unicode tokenisation, ONNX model loading (DP/TextEncoder/VectorEstimator/Vocoder), inference and WAV writing.",
+      "tags": [
+        "tts-pipeline",
+        "onnx",
+        "cpp",
+        "audio",
+        "core"
+      ],
+      "complexity": "complex",
+      "languageNotes": "Implements multilingual text normalisation, Hangul decomposition and tensor construction directly on top of ONNX Runtime C++ API."
+    },
+    {
+      "id": "function:cpp/helper.cpp:preprocessText",
+      "type": "function",
+      "name": "preprocessText",
+      "filePath": "cpp/helper.cpp",
+      "lineRange": [
+        52,
+        200
+      ],
+      "summary": "Performs language-aware text normalisation (Unicode cleanup, emoji removal, Korean Hangul decomposition, punctuation handling) producing tokens for downstream tokenisation.",
+      "tags": [
+        "text-preprocessing",
+        "unicode",
+        "multilingual",
+        "tts"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:cpp/helper.cpp:decomposeCharacter",
+      "type": "function",
+      "name": "decomposeCharacter",
+      "filePath": "cpp/helper.cpp",
+      "lineRange": [
+        272,
+        300
+      ],
+      "summary": "Decomposes a single Korean Hangul codepoint into its constituent Jamo characters for accurate text-to-phoneme processing.",
+      "tags": [
+        "unicode",
+        "hangul",
+        "decomposition",
+        "korean"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:cpp/helper.cpp:textToUnicodeValues",
+      "type": "function",
+      "name": "textToUnicodeValues",
+      "filePath": "cpp/helper.cpp",
+      "lineRange": [
+        302,
+        347
+      ],
+      "summary": "Iterates over the preprocessed text and emits a sequence of unicode codepoints/IDs that the encoder consumes.",
+      "tags": [
+        "tokenization",
+        "unicode",
+        "tts"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:cpp/helper.cpp:_infer",
+      "type": "function",
+      "name": "_infer",
+      "filePath": "cpp/helper.cpp",
+      "lineRange": [
+        469,
+        683
+      ],
+      "summary": "Core TTS inference loop: runs DP duration prediction, text encoder, iterative latent denoising via vector estimator and final vocoder pass to produce audio samples.",
+      "tags": [
+        "inference",
+        "onnx",
+        "diffusion",
+        "tts-pipeline",
+        "core"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:cpp/helper.cpp:sampleNoisyLatent",
+      "type": "function",
+      "name": "sampleNoisyLatent",
+      "filePath": "cpp/helper.cpp",
+      "lineRange": [
+        424,
+        467
+      ],
+      "summary": "Samples a Gaussian noisy latent tensor of the correct shape used as the starting point for the diffusion denoising loop.",
+      "tags": [
+        "diffusion",
+        "tensor",
+        "sampling"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:cpp/helper.cpp:call",
+      "type": "function",
+      "name": "call",
+      "filePath": "cpp/helper.cpp",
+      "lineRange": [
+        685,
+        723
+      ],
+      "summary": "High-level synthesis entry point that chunks long text, runs _infer per chunk and concatenates the audio with optional inter-chunk silence.",
+      "tags": [
+        "api",
+        "synthesis",
+        "chunking",
+        "tts"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:cpp/helper.cpp:batch",
+      "type": "function",
+      "name": "batch",
+      "filePath": "cpp/helper.cpp",
+      "lineRange": [
+        725,
+        734
+      ],
+      "summary": "Convenience wrapper that runs _infer for a list of text/language pairs producing a batched audio output.",
+      "tags": [
+        "batch",
+        "synthesis",
+        "tts"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:cpp/helper.cpp:loadOnnxAll",
+      "type": "function",
+      "name": "loadOnnxAll",
+      "filePath": "cpp/helper.cpp",
+      "lineRange": [
+        784,
+        795
+      ],
+      "summary": "Loads the four required ONNX models (DP, text encoder, vector estimator, vocoder) from a directory into an OnnxModels struct.",
+      "tags": [
+        "model-loading",
+        "onnx",
+        "io"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:cpp/helper.cpp:loadCfgs",
+      "type": "function",
+      "name": "loadCfgs",
+      "filePath": "cpp/helper.cpp",
+      "lineRange": [
+        801,
+        818
+      ],
+      "summary": "Reads model configuration JSON files from the onnx directory and populates the Config struct with model hyperparameters.",
+      "tags": [
+        "configuration",
+        "json",
+        "io"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:cpp/helper.cpp:loadVoiceStyle",
+      "type": "function",
+      "name": "loadVoiceStyle",
+      "filePath": "cpp/helper.cpp",
+      "lineRange": [
+        829,
+        897
+      ],
+      "summary": "Loads one or more voice style JSON files (ttl_data and dp_data with shapes) and constructs a Style object usable by the TTS pipeline.",
+      "tags": [
+        "voice-style",
+        "json",
+        "io",
+        "tts"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:cpp/helper.cpp:loadTextToSpeech",
+      "type": "function",
+      "name": "loadTextToSpeech",
+      "filePath": "cpp/helper.cpp",
+      "lineRange": [
+        903,
+        937
+      ],
+      "summary": "Top-level factory that wires together configs, text processor and ONNX models to construct a ready-to-use TextToSpeech instance with optional GPU acceleration.",
+      "tags": [
+        "factory",
+        "tts",
+        "initialization",
+        "gpu"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:cpp/helper.cpp:writeWavFile",
+      "type": "function",
+      "name": "writeWavFile",
+      "filePath": "cpp/helper.cpp",
+      "lineRange": [
+        943,
+        990
+      ],
+      "summary": "Writes a float audio buffer to a 16-bit PCM WAV file with the supplied sample rate, generating the RIFF/WAVE header manually.",
+      "tags": [
+        "audio",
+        "wav",
+        "io",
+        "serialization"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:cpp/helper.cpp:arrayToTensor",
+      "type": "function",
+      "name": "arrayToTensor",
+      "filePath": "cpp/helper.cpp",
+      "lineRange": [
+        996,
+        1022
+      ],
+      "summary": "Wraps a float array and shape into an Ort::Value tensor sharing the underlying buffer.",
+      "tags": [
+        "tensor",
+        "onnx",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:cpp/helper.cpp:intArrayToTensor",
+      "type": "function",
+      "name": "intArrayToTensor",
+      "filePath": "cpp/helper.cpp",
+      "lineRange": [
+        1024,
+        1048
+      ],
+      "summary": "Wraps an int64 array and shape into an Ort::Value tensor for use as encoder/decoder inputs.",
+      "tags": [
+        "tensor",
+        "onnx",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:cpp/helper.cpp:sanitizeFilename",
+      "type": "function",
+      "name": "sanitizeFilename",
+      "filePath": "cpp/helper.cpp",
+      "lineRange": [
+        1070,
+        1111
+      ],
+      "summary": "Sanitises a piece of user text into a filesystem-safe filename, trimming length and stripping unsafe characters.",
+      "tags": [
+        "utility",
+        "filesystem",
+        "sanitization"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:cpp/helper.cpp:chunkText",
+      "type": "function",
+      "name": "chunkText",
+      "filePath": "cpp/helper.cpp",
+      "lineRange": [
+        1117,
+        1186
+      ],
+      "summary": "Splits long input text into chunks that fit within the model's maximum context length, respecting sentence boundaries where possible.",
+      "tags": [
+        "text-processing",
+        "chunking",
+        "utility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:cpp/helper.h",
+      "type": "file",
+      "name": "helper.h",
+      "filePath": "cpp/helper.h",
+      "summary": "C++ header declaring the public interfaces for the Supertonic TTS pipeline: Config, UnicodeProcessor, Style, TextToSpeech and OnnxModels.",
+      "tags": [
+        "header",
+        "type-definition",
+        "cpp",
+        "api"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:cpp/helper.h:Config",
+      "type": "class",
+      "name": "Config",
+      "filePath": "cpp/helper.h",
+      "lineRange": [
+        17,
+        27
+      ],
+      "summary": "Configuration struct holding AE and TTL model hyperparameter sections loaded from JSON.",
+      "tags": [
+        "configuration",
+        "data-model",
+        "cpp"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:cpp/helper.h:UnicodeProcessor",
+      "type": "class",
+      "name": "UnicodeProcessor",
+      "filePath": "cpp/helper.h",
+      "lineRange": [
+        32,
+        52
+      ],
+      "summary": "Text preprocessor that maps incoming text into unicode token IDs via a JSON indexer; exposes call/preprocessText/textToUnicodeValues/getTextMask.",
+      "tags": [
+        "tokenization",
+        "unicode",
+        "tts",
+        "preprocessor"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:cpp/helper.h:Style",
+      "type": "class",
+      "name": "Style",
+      "filePath": "cpp/helper.h",
+      "lineRange": [
+        57,
+        72
+      ],
+      "summary": "Voice style container holding the TTL and DP style tensors and their shapes, passed into TextToSpeech inference.",
+      "tags": [
+        "voice-style",
+        "data-model",
+        "tensor"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:cpp/helper.h:TextToSpeech",
+      "type": "class",
+      "name": "TextToSpeech",
+      "filePath": "cpp/helper.h",
+      "lineRange": [
+        77,
+        139
+      ],
+      "summary": "Core TTS class owning the four ONNX sessions and the inference state; exposes call/batch synthesis APIs and configuration accessors like getSampleRate.",
+      "tags": [
+        "tts",
+        "core",
+        "onnx",
+        "api"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:cpp/helper.h:OnnxModels",
+      "type": "class",
+      "name": "OnnxModels",
+      "filePath": "cpp/helper.h",
+      "lineRange": [
+        153,
+        158
+      ],
+      "summary": "Aggregate struct holding the four required ONNX sessions (dp, text_enc, vector_est, vocoder).",
+      "tags": [
+        "data-model",
+        "onnx",
+        "cpp"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:csharp/ExampleONNX.cs",
+      "type": "file",
+      "name": "ExampleONNX.cs",
+      "filePath": "csharp/ExampleONNX.cs",
+      "summary": "C# entry-point that parses CLI arguments, loads the Supertonic TTS pipeline via Helper and synthesises audio using ONNX Runtime for .NET.",
+      "tags": [
+        "entry-point",
+        "csharp",
+        "cli",
+        "tts-example"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:csharp/ExampleONNX.cs:Program",
+      "type": "class",
+      "name": "Program",
+      "filePath": "csharp/ExampleONNX.cs",
+      "lineRange": [
+        8,
+        138
+      ],
+      "summary": "Main C# program class with ParseArgs and Main that orchestrate ONNX Runtime initialisation, voice-style loading and single/batch synthesis.",
+      "tags": [
+        "entry-point",
+        "csharp",
+        "orchestration"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:csharp/ExampleONNX.cs:ParseArgs",
+      "type": "function",
+      "name": "ParseArgs",
+      "filePath": "csharp/ExampleONNX.cs",
+      "lineRange": [
+        27,
+        69
+      ],
+      "summary": "Parses command-line arguments into a configuration dictionary, including ONNX directory, language, voice style and batch mode.",
+      "tags": [
+        "cli",
+        "argument-parsing",
+        "csharp"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:csharp/ExampleONNX.cs:Main",
+      "type": "function",
+      "name": "Main",
+      "filePath": "csharp/ExampleONNX.cs",
+      "lineRange": [
+        71,
+        137
+      ],
+      "summary": "Program entry point that loads the TTS pipeline, runs synthesis (single or batch) and writes the resulting WAV files.",
+      "tags": [
+        "entry-point",
+        "main",
+        "orchestration"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:csharp/Helper.cs",
+      "type": "file",
+      "name": "Helper.cs",
+      "filePath": "csharp/Helper.cs",
+      "summary": "C# implementation of the Supertonic TTS pipeline mirroring helper.cpp: text preprocessing, voice style loading, ONNX session management, diffusion inference and WAV writing.",
+      "tags": [
+        "tts-pipeline",
+        "onnx",
+        "csharp",
+        "audio",
+        "core"
+      ],
+      "complexity": "complex",
+      "languageNotes": "Mirrors the C++ helper using OnnxRuntime for .NET and idiomatic PascalCase APIs (LoadTextToSpeech, Call, Batch)."
+    },
+    {
+      "id": "class:csharp/Helper.cs:Languages",
+      "type": "class",
+      "name": "Languages",
+      "filePath": "csharp/Helper.cs",
+      "lineRange": [
+        14,
+        17
+      ],
+      "summary": "Static container listing the languages supported by the Supertonic TTS model.",
+      "tags": [
+        "data-model",
+        "constants",
+        "multilingual"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:csharp/Helper.cs:Config",
+      "type": "class",
+      "name": "Config",
+      "filePath": "csharp/Helper.cs",
+      "lineRange": [
+        23,
+        39
+      ],
+      "summary": "Configuration object holding AE and TTL model hyperparameters loaded from JSON.",
+      "tags": [
+        "configuration",
+        "data-model",
+        "csharp"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:csharp/Helper.cs:Style",
+      "type": "class",
+      "name": "Style",
+      "filePath": "csharp/Helper.cs",
+      "lineRange": [
+        45,
+        59
+      ],
+      "summary": "Voice-style data class containing the TTL and DP tensors with their shapes consumed by the TTS pipeline.",
+      "tags": [
+        "voice-style",
+        "data-model",
+        "tensor"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:csharp/Helper.cs:UnicodeProcessor",
+      "type": "class",
+      "name": "UnicodeProcessor",
+      "filePath": "csharp/Helper.cs",
+      "lineRange": [
+        65,
+        256
+      ],
+      "summary": "Text preprocessor that strips emojis, normalises punctuation, decomposes Hangul and converts text into unicode token IDs for the encoder.",
+      "tags": [
+        "tokenization",
+        "unicode",
+        "preprocessor",
+        "multilingual"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:csharp/Helper.cs:TextToSpeech",
+      "type": "class",
+      "name": "TextToSpeech",
+      "filePath": "csharp/Helper.cs",
+      "lineRange": [
+        262,
+        474
+      ],
+      "summary": "Core TTS class owning the four ONNX sessions; provides Call and Batch synthesis APIs and runs the diffusion-style inference loop.",
+      "tags": [
+        "tts",
+        "core",
+        "onnx",
+        "api"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:csharp/Helper.cs:Helper",
+      "type": "class",
+      "name": "Helper",
+      "filePath": "csharp/Helper.cs",
+      "lineRange": [
+        480,
+        860
+      ],
+      "summary": "Static utility class with model loading, tensor construction, WAV writing, JSON parsing and text-chunking helpers for the C# example.",
+      "tags": [
+        "utility",
+        "io",
+        "factory",
+        "tts"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:csharp/Helper.cs:PreprocessText",
+      "type": "function",
+      "name": "PreprocessText",
+      "filePath": "csharp/Helper.cs",
+      "lineRange": [
+        127,
+        221
+      ],
+      "summary": "Language-aware text normalisation removing emojis, decomposing Hangul and emitting the cleaned token stream for tokenisation.",
+      "tags": [
+        "text-preprocessing",
+        "unicode",
+        "multilingual"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:csharp/Helper.cs:RemoveEmojis",
+      "type": "function",
+      "name": "RemoveEmojis",
+      "filePath": "csharp/Helper.cs",
+      "lineRange": [
+        80,
+        125
+      ],
+      "summary": "Removes emoji characters from input text using a curated set of Unicode block predicates.",
+      "tags": [
+        "text-preprocessing",
+        "unicode",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:csharp/Helper.cs:_Infer",
+      "type": "function",
+      "name": "_Infer",
+      "filePath": "csharp/Helper.cs",
+      "lineRange": [
+        340,
+        434
+      ],
+      "summary": "Inner inference routine running duration prediction, text encoding, iterative latent denoising and vocoder synthesis to produce audio samples.",
+      "tags": [
+        "inference",
+        "onnx",
+        "diffusion",
+        "tts-pipeline"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:csharp/Helper.cs:SampleNoisyLatent",
+      "type": "function",
+      "name": "SampleNoisyLatent",
+      "filePath": "csharp/Helper.cs",
+      "lineRange": [
+        295,
+        338
+      ],
+      "summary": "Samples a Gaussian noisy latent tensor of the right shape to seed the diffusion denoising loop.",
+      "tags": [
+        "diffusion",
+        "tensor",
+        "sampling"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:csharp/Helper.cs:Call",
+      "type": "function",
+      "name": "Call",
+      "filePath": "csharp/Helper.cs",
+      "lineRange": [
+        436,
+        468
+      ],
+      "summary": "Public single-utterance synthesis API; chunks long text, runs inference per chunk and concatenates the resulting audio.",
+      "tags": [
+        "api",
+        "synthesis",
+        "tts"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:csharp/Helper.cs:LoadVoiceStyle",
+      "type": "function",
+      "name": "LoadVoiceStyle",
+      "filePath": "csharp/Helper.cs",
+      "lineRange": [
+        575,
+        643
+      ],
+      "summary": "Reads one or more voice-style JSON files into Style instances, parsing 3D float arrays and int64 shape arrays.",
+      "tags": [
+        "voice-style",
+        "json",
+        "io"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:csharp/Helper.cs:LoadTextToSpeech",
+      "type": "function",
+      "name": "LoadTextToSpeech",
+      "filePath": "csharp/Helper.cs",
+      "lineRange": [
+        679,
+        696
+      ],
+      "summary": "Factory that loads configs, text processor and ONNX sessions, returning a ready-to-use TextToSpeech with optional GPU.",
+      "tags": [
+        "factory",
+        "tts",
+        "initialization"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:csharp/Helper.cs:WriteWavFile",
+      "type": "function",
+      "name": "WriteWavFile",
+      "filePath": "csharp/Helper.cs",
+      "lineRange": [
+        702,
+        738
+      ],
+      "summary": "Writes a float audio buffer to a 16-bit PCM WAV file, constructing the RIFF header explicitly.",
+      "tags": [
+        "audio",
+        "wav",
+        "io",
+        "serialization"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:csharp/Helper.cs:ChunkText",
+      "type": "function",
+      "name": "ChunkText",
+      "filePath": "csharp/Helper.cs",
+      "lineRange": [
+        805,
+        859
+      ],
+      "summary": "Splits text into chunks fitting the model's context window while respecting sentence boundaries.",
+      "tags": [
+        "text-processing",
+        "chunking",
+        "utility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:csharp/Helper.cs:LengthToMask",
+      "type": "function",
+      "name": "LengthToMask",
+      "filePath": "csharp/Helper.cs",
+      "lineRange": [
+        486,
+        504
+      ],
+      "summary": "Builds a boolean attention mask tensor from a per-sample length array up to a maximum length.",
+      "tags": [
+        "tensor",
+        "mask",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:csharp/Helper.cs:ArrayToTensor",
+      "type": "function",
+      "name": "ArrayToTensor",
+      "filePath": "csharp/Helper.cs",
+      "lineRange": [
+        744,
+        755
+      ],
+      "summary": "Wraps a float array with a shape into an OrtValue tensor for ONNX session input.",
+      "tags": [
+        "tensor",
+        "onnx",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:csharp/Helper.cs:IntArrayToTensor",
+      "type": "function",
+      "name": "IntArrayToTensor",
+      "filePath": "csharp/Helper.cs",
+      "lineRange": [
+        757,
+        765
+      ],
+      "summary": "Wraps an int64 array with a shape into an OrtValue tensor.",
+      "tags": [
+        "tensor",
+        "onnx",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:csharp/Helper.cs:SanitizeFilename",
+      "type": "function",
+      "name": "SanitizeFilename",
+      "filePath": "csharp/Helper.cs",
+      "lineRange": [
+        781,
+        799
+      ],
+      "summary": "Sanitises text into a safe output filename by stripping forbidden characters and truncating length.",
+      "tags": [
+        "utility",
+        "filesystem",
+        "sanitization"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:csharp/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "csharp/README.md",
+      "summary": "Documentation for the C# Supertonic example covering .NET prerequisites, NuGet dependencies and how to build and run ExampleONNX with various languages and voice styles.",
+      "tags": [
+        "documentation",
+        "csharp",
+        "build-instructions"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:csharp/Supertonic.csproj",
+      "type": "config",
+      "name": "Supertonic.csproj",
+      "filePath": "csharp/Supertonic.csproj",
+      "summary": ".NET project file declaring target framework and NuGet package references (notably Microsoft.ML.OnnxRuntime) for the C# Supertonic example.",
+      "tags": [
+        "configuration",
+        "dotnet",
+        "build-system",
+        "nuget"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:go/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "go/README.md",
+      "summary": "Documentation for the Go Supertonic example covering Go module setup, ONNX Runtime native library installation and how to invoke example_onnx with various flags.",
+      "tags": [
+        "documentation",
+        "go",
+        "build-instructions"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:go/example_onnx.go",
+      "type": "file",
+      "name": "example_onnx.go",
+      "filePath": "go/example_onnx.go",
+      "summary": "Go entry-point program that parses CLI flags, initialises ONNX Runtime via the helper package and runs single or batch Supertonic synthesis to WAV.",
+      "tags": [
+        "entry-point",
+        "go",
+        "cli",
+        "tts-example"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:go/example_onnx.go:Args",
+      "type": "class",
+      "name": "Args",
+      "filePath": "go/example_onnx.go",
+      "lineRange": [
+        14,
+        25
+      ],
+      "summary": "Struct holding parsed CLI options (useGPU, onnxDir, totalStep, speed, voice style, text, language, output directory, batch flag) for the Go example.",
+      "tags": [
+        "data-model",
+        "cli-args",
+        "go"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:go/example_onnx.go:parseArgs",
+      "type": "function",
+      "name": "parseArgs",
+      "filePath": "go/example_onnx.go",
+      "lineRange": [
+        27,
+        70
+      ],
+      "summary": "Parses command-line flags into an Args struct using the standard flag package, exposing GPU, batch and voice-style options.",
+      "tags": [
+        "cli",
+        "argument-parsing",
+        "go"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:go/example_onnx.go:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "go/example_onnx.go",
+      "lineRange": [
+        72,
+        193
+      ],
+      "summary": "Go program entry point that initialises the ONNX Runtime, loads the TextToSpeech pipeline and voice style, runs synthesis (single or batch) and writes the WAV output files.",
+      "tags": [
+        "entry-point",
+        "main",
+        "orchestration",
+        "tts"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:go/go.mod",
+      "type": "config",
+      "name": "go.mod",
+      "filePath": "go/go.mod",
+      "summary": "Go module manifest declaring the module path, Go version and direct dependencies for the Go Supertonic example.",
+      "tags": [
+        "configuration",
+        "go",
+        "build-system",
+        "modules"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:go/go.sum",
+      "type": "config",
+      "name": "go.sum",
+      "filePath": "go/go.sum",
+      "summary": "Go module checksum lockfile pinning exact dependency versions for reproducible builds.",
+      "tags": [
+        "configuration",
+        "go",
+        "build-system",
+        "lockfile"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:go/helper.go",
+      "type": "file",
+      "name": "helper.go",
+      "filePath": "go/helper.go",
+      "summary": "Go implementation of the Supertonic TTS pipeline: configuration structs, ONNX Runtime initialisation, text preprocessing, voice style loading, diffusion-style inference and WAV writing.",
+      "tags": [
+        "tts-pipeline",
+        "onnx",
+        "go",
+        "audio",
+        "core"
+      ],
+      "complexity": "complex",
+      "languageNotes": "Mirrors helper.cpp/helper.cs using a richer set of typed config structs and explicit Destroy() lifecycle for native ONNX tensors."
+    },
+    {
+      "id": "class:go/helper.go:Config",
+      "type": "class",
+      "name": "Config",
+      "filePath": "go/helper.go",
+      "lineRange": [
+        80,
+        84
+      ],
+      "summary": "Top-level configuration struct combining AE, TTL and DP model hyperparameter sections.",
+      "tags": [
+        "configuration",
+        "data-model",
+        "go"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:go/helper.go:AEConfig",
+      "type": "class",
+      "name": "AEConfig",
+      "filePath": "go/helper.go",
+      "lineRange": [
+        39,
+        43
+      ],
+      "summary": "Autoencoder configuration containing sample rate, base chunk size and nested encoder/spectrogram settings.",
+      "tags": [
+        "configuration",
+        "data-model",
+        "audio"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:go/helper.go:TTLConfig",
+      "type": "class",
+      "name": "TTLConfig",
+      "filePath": "go/helper.go",
+      "lineRange": [
+        63,
+        68
+      ],
+      "summary": "Text-to-latent configuration (chunk compression factor, latent dim, style and text encoder settings).",
+      "tags": [
+        "configuration",
+        "data-model",
+        "tts"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:go/helper.go:DPConfig",
+      "type": "class",
+      "name": "DPConfig",
+      "filePath": "go/helper.go",
+      "lineRange": [
+        74,
+        78
+      ],
+      "summary": "Duration-predictor configuration (latent dim, chunk compression factor, style encoder).",
+      "tags": [
+        "configuration",
+        "data-model",
+        "tts"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:go/helper.go:VoiceStyleData",
+      "type": "class",
+      "name": "VoiceStyleData",
+      "filePath": "go/helper.go",
+      "lineRange": [
+        87,
+        98
+      ],
+      "summary": "JSON-mapped struct describing a serialized voice style file (TTL and DP style arrays with shapes).",
+      "tags": [
+        "voice-style",
+        "data-model",
+        "json"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:go/helper.go:UnicodeProcessor",
+      "type": "class",
+      "name": "UnicodeProcessor",
+      "filePath": "go/helper.go",
+      "lineRange": [
+        101,
+        103
+      ],
+      "summary": "Text preprocessor wrapping a unicode indexer table loaded from JSON; exposes Call to tokenise text and language.",
+      "tags": [
+        "tokenization",
+        "unicode",
+        "preprocessor"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:go/helper.go:Style",
+      "type": "class",
+      "name": "Style",
+      "filePath": "go/helper.go",
+      "lineRange": [
+        508,
+        511
+      ],
+      "summary": "Voice-style holder containing TTL and DP ONNX tensors with an explicit Destroy method to release native resources.",
+      "tags": [
+        "voice-style",
+        "data-model",
+        "tensor"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:go/helper.go:TextToSpeech",
+      "type": "class",
+      "name": "TextToSpeech",
+      "filePath": "go/helper.go",
+      "lineRange": [
+        613,
+        624
+      ],
+      "summary": "Core Go TTS struct owning the four ONNX sessions and exposing Call, Batch and Destroy methods for synthesis and cleanup.",
+      "tags": [
+        "tts",
+        "core",
+        "onnx",
+        "api"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:go/helper.go:NewUnicodeProcessor",
+      "type": "function",
+      "name": "NewUnicodeProcessor",
+      "filePath": "go/helper.go",
+      "lineRange": [
+        106,
+        113
+      ],
+      "summary": "Constructs a UnicodeProcessor by loading the unicode indexer table from the supplied JSON file path.",
+      "tags": [
+        "factory",
+        "constructor",
+        "go"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:go/helper.go:Call",
+      "type": "function",
+      "name": "UnicodeProcessor.Call",
+      "filePath": "go/helper.go",
+      "lineRange": [
+        116,
+        153
+      ],
+      "summary": "Tokenises a batch of texts with their languages into padded int64 ID and mask tensors for the encoder.",
+      "tags": [
+        "tokenization",
+        "tensor",
+        "tts"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:go/helper.go:chunkText",
+      "type": "function",
+      "name": "chunkText",
+      "filePath": "go/helper.go",
+      "lineRange": [
+        164,
+        285
+      ],
+      "summary": "Splits long text into model-sized chunks while preferring sentence boundaries.",
+      "tags": [
+        "text-processing",
+        "chunking",
+        "utility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:go/helper.go:splitSentences",
+      "type": "function",
+      "name": "splitSentences",
+      "filePath": "go/helper.go",
+      "lineRange": [
+        287,
+        331
+      ],
+      "summary": "Splits text into sentences using punctuation and language-aware heuristics.",
+      "tags": [
+        "text-processing",
+        "nlp",
+        "utility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:go/helper.go:preprocessText",
+      "type": "function",
+      "name": "preprocessText",
+      "filePath": "go/helper.go",
+      "lineRange": [
+        344,
+        436
+      ],
+      "summary": "Performs language-aware normalisation (Unicode cleanup, Korean Hangul handling, punctuation rules) on input text.",
+      "tags": [
+        "text-preprocessing",
+        "unicode",
+        "multilingual"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:go/helper.go:lengthToMask",
+      "type": "function",
+      "name": "lengthToMask",
+      "filePath": "go/helper.go",
+      "lineRange": [
+        438,
+        455
+      ],
+      "summary": "Builds a boolean attention mask from per-sample lengths up to max_len for batched tensor inputs.",
+      "tags": [
+        "tensor",
+        "mask",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:go/helper.go:writeWavFile",
+      "type": "function",
+      "name": "writeWavFile",
+      "filePath": "go/helper.go",
+      "lineRange": [
+        478,
+        505
+      ],
+      "summary": "Writes a float audio buffer to a 16-bit PCM WAV file with the supplied sample rate.",
+      "tags": [
+        "audio",
+        "wav",
+        "io",
+        "serialization"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:go/helper.go:LoadVoiceStyle",
+      "type": "function",
+      "name": "LoadVoiceStyle",
+      "filePath": "go/helper.go",
+      "lineRange": [
+        523,
+        610
+      ],
+      "summary": "Loads voice style JSON files into Style instances backed by ONNX tensors, parsing 3D float and shape arrays.",
+      "tags": [
+        "voice-style",
+        "json",
+        "io",
+        "go"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:go/helper.go:sampleNoisyLatent",
+      "type": "function",
+      "name": "sampleNoisyLatent",
+      "filePath": "go/helper.go",
+      "lineRange": [
+        626,
+        676
+      ],
+      "summary": "Samples a Gaussian noisy latent tensor (and its mask) used to seed the diffusion denoising process.",
+      "tags": [
+        "diffusion",
+        "tensor",
+        "sampling"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:go/helper.go:_infer",
+      "type": "function",
+      "name": "_infer",
+      "filePath": "go/helper.go",
+      "lineRange": [
+        678,
+        799
+      ],
+      "summary": "Core Go TTS inference: runs DP duration prediction, text encoder, iterative latent denoising via the vector estimator and the final vocoder pass.",
+      "tags": [
+        "inference",
+        "onnx",
+        "diffusion",
+        "tts-pipeline"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:go/helper.go:LoadTextToSpeech",
+      "type": "function",
+      "name": "LoadTextToSpeech",
+      "filePath": "go/helper.go",
+      "lineRange": [
+        859,
+        917
+      ],
+      "summary": "Factory that initialises configs, text processor and ONNX sessions to return a ready-to-use TextToSpeech struct with optional GPU acceleration.",
+      "tags": [
+        "factory",
+        "tts",
+        "initialization",
+        "gpu"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:go/helper.go:InitializeONNXRuntime",
+      "type": "function",
+      "name": "InitializeONNXRuntime",
+      "filePath": "go/helper.go",
+      "lineRange": [
+        920,
+        947
+      ],
+      "summary": "Locates and loads the ONNX Runtime shared library appropriate for the host OS/architecture and initialises the runtime.",
+      "tags": [
+        "initialization",
+        "onnx",
+        "platform",
+        "native"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:go/helper.go:LoadCfgs",
+      "type": "function",
+      "name": "LoadCfgs",
+      "filePath": "go/helper.go",
+      "lineRange": [
+        998,
+        1011
+      ],
+      "summary": "Reads the model configuration JSON file from the ONNX directory into a Config struct.",
+      "tags": [
+        "configuration",
+        "json",
+        "io"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:go/helper.go:ArrayToTensor",
+      "type": "function",
+      "name": "ArrayToTensor",
+      "filePath": "go/helper.go",
+      "lineRange": [
+        1029,
+        1053
+      ],
+      "summary": "Wraps a float array and shape into a native ONNX tensor for use as session inputs.",
+      "tags": [
+        "tensor",
+        "onnx",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:go/helper.go:IntArrayToTensor",
+      "type": "function",
+      "name": "IntArrayToTensor",
+      "filePath": "go/helper.go",
+      "lineRange": [
+        1055,
+        1077
+      ],
+      "summary": "Wraps an int64 array and shape into a native ONNX tensor.",
+      "tags": [
+        "tensor",
+        "onnx",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:go/helper.go:sanitizeFilename",
+      "type": "function",
+      "name": "sanitizeFilename",
+      "filePath": "go/helper.go",
+      "lineRange": [
+        950,
+        966
+      ],
+      "summary": "Sanitises text into a safe output filename by removing illegal characters and truncating length.",
+      "tags": [
+        "utility",
+        "filesystem",
+        "sanitization"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:go/helper.go:extractWavSegment",
+      "type": "function",
+      "name": "extractWavSegment",
+      "filePath": "go/helper.go",
+      "lineRange": [
+        969,
+        985
+      ],
+      "summary": "Extracts a single batch-item audio segment from the concatenated batched output tensor using the predicted duration.",
+      "tags": [
+        "audio",
+        "batch",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:flutter/.metadata",
+      "type": "config",
+      "name": ".metadata",
+      "filePath": "flutter/.metadata",
+      "summary": "Flutter-generated metadata tracking the Flutter SDK channel, revision, and migration history for this project; not edited manually.",
+      "tags": [
+        "configuration",
+        "flutter",
+        "tooling"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:flutter/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "flutter/README.md",
+      "summary": "Documentation for the Supertonic Flutter example covering update news, multilingual support, requirements, and instructions to run the demo on macOS.",
+      "tags": [
+        "documentation",
+        "entry-point",
+        "flutter",
+        "tts"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:flutter/analysis_options.yaml",
+      "type": "config",
+      "name": "analysis_options.yaml",
+      "filePath": "flutter/analysis_options.yaml",
+      "summary": "Dart analyzer/linter configuration that includes the recommended flutter_lints rule set and allows per-project lint customization.",
+      "tags": [
+        "configuration",
+        "linting",
+        "dart",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:flutter/lib/helper.dart",
+      "type": "file",
+      "name": "helper.dart",
+      "filePath": "flutter/lib/helper.dart",
+      "summary": "Dart port of the Supertonic TTS inference pipeline that loads ONNX models, preprocesses multilingual text (NFKD decomposition, language tagging), runs duration prediction and the iterative denoising loop, and writes WAV output.",
+      "tags": [
+        "tts",
+        "onnx-runtime",
+        "inference",
+        "audio",
+        "multilingual"
+      ],
+      "complexity": "complex",
+      "languageNotes": "Dart implementation using flutter_onnxruntime; manually decomposes Hangul syllables and Latin accented characters to mirror Python NFKD behavior."
+    },
+    {
+      "id": "class:flutter/lib/helper.dart:UnicodeProcessor",
+      "type": "class",
+      "name": "UnicodeProcessor",
+      "filePath": "flutter/lib/helper.dart",
+      "lineRange": [
+        213,
+        264
+      ],
+      "summary": "Loads a Unicode-to-token-index map from JSON and converts batches of preprocessed text into token id matrices and attention masks for the ONNX models.",
+      "tags": [
+        "tokenizer",
+        "preprocessing",
+        "unicode",
+        "tts"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:flutter/lib/helper.dart:Style",
+      "type": "class",
+      "name": "Style",
+      "filePath": "flutter/lib/helper.dart",
+      "lineRange": [
+        266,
+        270
+      ],
+      "summary": "Container holding the duration-predictor and text-to-latent style tensors plus their shapes used as conditioning inputs to the TTS models.",
+      "tags": [
+        "data-model",
+        "tts",
+        "voice-style"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:flutter/lib/helper.dart:TextToSpeech",
+      "type": "class",
+      "name": "TextToSpeech",
+      "filePath": "flutter/lib/helper.dart",
+      "lineRange": [
+        272,
+        531
+      ],
+      "summary": "Orchestrates the full Supertonic inference: chunks text by language, runs the duration predictor, text encoder, iterative vector-estimator denoising loop, and vocoder ONNX sessions, returning waveform samples and duration.",
+      "tags": [
+        "tts",
+        "inference",
+        "onnx-runtime",
+        "denoising",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:flutter/lib/helper.dart:preprocessText",
+      "type": "function",
+      "name": "preprocessText",
+      "filePath": "flutter/lib/helper.dart",
+      "lineRange": [
+        131,
+        211
+      ],
+      "summary": "Normalizes input text via NFKD-like decomposition, strips emojis and symbols, fixes punctuation spacing, validates the language code, and wraps the result in language tags expected by the encoder.",
+      "tags": [
+        "preprocessing",
+        "text-normalization",
+        "multilingual",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:flutter/lib/helper.dart:loadTextToSpeech",
+      "type": "function",
+      "name": "loadTextToSpeech",
+      "filePath": "flutter/lib/helper.dart",
+      "lineRange": [
+        533,
+        554
+      ],
+      "summary": "Factory that loads TTS configuration, all ONNX sessions, and the unicode tokenizer from an asset directory and constructs a ready-to-use TextToSpeech instance.",
+      "tags": [
+        "factory",
+        "model-loading",
+        "tts",
+        "initialization"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:flutter/lib/helper.dart:loadVoiceStyle",
+      "type": "function",
+      "name": "loadVoiceStyle",
+      "filePath": "flutter/lib/helper.dart",
+      "lineRange": [
+        556,
+        596
+      ],
+      "summary": "Loads one or more voice style JSON files, flattens their style_ttl/style_dp tensors into Float32 buffers, and wraps them as ONNX tensors inside a Style object.",
+      "tags": [
+        "model-loading",
+        "voice-style",
+        "tensor",
+        "tts"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:flutter/lib/helper.dart:copyModelToFile",
+      "type": "function",
+      "name": "copyModelToFile",
+      "filePath": "flutter/lib/helper.dart",
+      "lineRange": [
+        604,
+        612
+      ],
+      "summary": "Copies a bundled asset (ONNX model) to the application cache directory so it can be opened by the ONNX runtime as a file path.",
+      "tags": [
+        "utility",
+        "asset-loading",
+        "filesystem"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:flutter/lib/helper.dart:writeWavFile",
+      "type": "function",
+      "name": "writeWavFile",
+      "filePath": "flutter/lib/helper.dart",
+      "lineRange": [
+        642,
+        695
+      ],
+      "summary": "Encodes a list of float audio samples into a 16-bit PCM mono WAV file by writing the RIFF, fmt and data chunks and clamping samples to the int16 range.",
+      "tags": [
+        "audio",
+        "wav",
+        "serialization",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:flutter/lib/main.dart",
+      "type": "file",
+      "name": "main.dart",
+      "filePath": "flutter/lib/main.dart",
+      "summary": "Flutter application entry point that bootstraps the SupertonicApp Material UI, loads the TTS models and voice style, and renders the TTSPage with controls for text input, denoising steps, speed, language, and audio playback.",
+      "tags": [
+        "entry-point",
+        "flutter",
+        "ui",
+        "tts",
+        "demo"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:flutter/lib/main.dart:SupertonicApp",
+      "type": "class",
+      "name": "SupertonicApp",
+      "filePath": "flutter/lib/main.dart",
+      "lineRange": [
+        11,
+        25
+      ],
+      "summary": "Root MaterialApp widget that configures the theme and sets TTSPage as the home screen for the demo.",
+      "tags": [
+        "component",
+        "flutter",
+        "entry-point",
+        "widget"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:flutter/lib/main.dart:TTSPage",
+      "type": "class",
+      "name": "TTSPage",
+      "filePath": "flutter/lib/main.dart",
+      "lineRange": [
+        27,
+        32
+      ],
+      "summary": "StatefulWidget shell for the TTS demo page that delegates state and rendering to _TTSPageState.",
+      "tags": [
+        "component",
+        "flutter",
+        "widget",
+        "stateful"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:flutter/lib/main.dart:_TTSPageState",
+      "type": "class",
+      "name": "_TTSPageState",
+      "filePath": "flutter/lib/main.dart",
+      "lineRange": [
+        34,
+        388
+      ],
+      "summary": "Holds the TTS demo's runtime state, wires the audio player listeners, loads models, generates speech via the helper pipeline, writes WAV output, and renders the input form, parameter sliders, language dropdown, and playback/download buttons.",
+      "tags": [
+        "component",
+        "flutter",
+        "state",
+        "ui",
+        "tts"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:flutter/macos/Flutter/Flutter-Debug.xcconfig",
+      "type": "config",
+      "name": "Flutter-Debug.xcconfig",
+      "filePath": "flutter/macos/Flutter/Flutter-Debug.xcconfig",
+      "summary": "Generated Flutter macOS debug Xcode configuration that includes ephemeral build settings produced by the Flutter tool.",
+      "tags": [
+        "configuration",
+        "xcode",
+        "flutter",
+        "macos"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:flutter/macos/Flutter/Flutter-Release.xcconfig",
+      "type": "config",
+      "name": "Flutter-Release.xcconfig",
+      "filePath": "flutter/macos/Flutter/Flutter-Release.xcconfig",
+      "summary": "Generated Flutter macOS release Xcode configuration that includes ephemeral build settings produced by the Flutter tool.",
+      "tags": [
+        "configuration",
+        "xcode",
+        "flutter",
+        "macos"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:flutter/macos/Flutter/GeneratedPluginRegistrant.swift",
+      "type": "file",
+      "name": "GeneratedPluginRegistrant.swift",
+      "filePath": "flutter/macos/Flutter/GeneratedPluginRegistrant.swift",
+      "summary": "Auto-generated Swift glue that registers Flutter plugins with the macOS embedder at startup; rewritten by the Flutter tool.",
+      "tags": [
+        "generated",
+        "flutter",
+        "macos",
+        "plugin-registration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:flutter/macos/Podfile",
+      "type": "config",
+      "name": "Podfile",
+      "filePath": "flutter/macos/Podfile",
+      "summary": "CocoaPods configuration for the macOS Runner that wires Flutter ephemeral build settings into the Runner and RunnerTests targets.",
+      "tags": [
+        "configuration",
+        "cocoapods",
+        "macos",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:flutter/macos/Runner/AppDelegate.swift",
+      "type": "file",
+      "name": "AppDelegate.swift",
+      "filePath": "flutter/macos/Runner/AppDelegate.swift",
+      "summary": "Minimal NSApplicationDelegate for the macOS Runner that terminates the app when the last window closes.",
+      "tags": [
+        "macos",
+        "boilerplate",
+        "flutter",
+        "app-delegate"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:flutter/macos/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json",
+      "type": "config",
+      "name": "Contents.json",
+      "filePath": "flutter/macos/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json",
+      "summary": "Xcode asset catalog manifest enumerating the macOS app icon image sizes and scales used by the Runner target.",
+      "tags": [
+        "configuration",
+        "xcode",
+        "assets",
+        "icons",
+        "macos"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:flutter/macos/Runner/Base.lproj/MainMenu.xib",
+      "type": "config",
+      "name": "MainMenu.xib",
+      "filePath": "flutter/macos/Runner/Base.lproj/MainMenu.xib",
+      "summary": "Interface Builder XIB defining the macOS main menu bar (application, file, edit, view, window, help) and basic window for the Runner.",
+      "tags": [
+        "configuration",
+        "xib",
+        "macos",
+        "ui",
+        "boilerplate"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:flutter/macos/Runner/Configs/AppInfo.xcconfig",
+      "type": "config",
+      "name": "AppInfo.xcconfig",
+      "filePath": "flutter/macos/Runner/Configs/AppInfo.xcconfig",
+      "summary": "Xcconfig defining macOS Runner app identity values such as product name, bundle identifier, and copyright that are consumed by Info.plist.",
+      "tags": [
+        "configuration",
+        "xcode",
+        "macos",
+        "app-identity"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:flutter/macos/Runner/Configs/Debug.xcconfig",
+      "type": "config",
+      "name": "Debug.xcconfig",
+      "filePath": "flutter/macos/Runner/Configs/Debug.xcconfig",
+      "summary": "Debug xcconfig that imports Flutter-Debug and AppInfo settings for the macOS Runner target.",
+      "tags": [
+        "configuration",
+        "xcode",
+        "macos",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:flutter/macos/Runner/Configs/Release.xcconfig",
+      "type": "config",
+      "name": "Release.xcconfig",
+      "filePath": "flutter/macos/Runner/Configs/Release.xcconfig",
+      "summary": "Release xcconfig that imports Flutter-Release and AppInfo settings for the macOS Runner target.",
+      "tags": [
+        "configuration",
+        "xcode",
+        "macos",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:flutter/macos/Runner/Configs/Warnings.xcconfig",
+      "type": "config",
+      "name": "Warnings.xcconfig",
+      "filePath": "flutter/macos/Runner/Configs/Warnings.xcconfig",
+      "summary": "Xcconfig enabling a stricter set of clang/Swift warnings (implicit fallthrough, undeclared selector, etc.) for the macOS Runner target.",
+      "tags": [
+        "configuration",
+        "xcode",
+        "warnings",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:flutter/macos/Runner/DebugProfile.entitlements",
+      "type": "config",
+      "name": "DebugProfile.entitlements",
+      "filePath": "flutter/macos/Runner/DebugProfile.entitlements",
+      "summary": "Debug/profile entitlements granting the macOS Runner network client access and the file-read entitlement required for Flutter hot reload via mDNS.",
+      "tags": [
+        "configuration",
+        "entitlements",
+        "macos",
+        "security"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:flutter/macos/Runner/Info.plist",
+      "type": "config",
+      "name": "Info.plist",
+      "filePath": "flutter/macos/Runner/Info.plist",
+      "summary": "macOS bundle Info.plist declaring the Runner's identity, principal class, main XIB, and minimum system version using values from the xcconfig files.",
+      "tags": [
+        "configuration",
+        "plist",
+        "macos",
+        "bundle"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:flutter/macos/Runner/MainFlutterWindow.swift",
+      "type": "file",
+      "name": "MainFlutterWindow.swift",
+      "filePath": "flutter/macos/Runner/MainFlutterWindow.swift",
+      "summary": "macOS NSWindow subclass that hosts a FlutterViewController, sets its initial frame, and registers generated plugins.",
+      "tags": [
+        "macos",
+        "flutter",
+        "window",
+        "boilerplate"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:flutter/macos/Runner/Release.entitlements",
+      "type": "config",
+      "name": "Release.entitlements",
+      "filePath": "flutter/macos/Runner/Release.entitlements",
+      "summary": "Release entitlements enabling the App Sandbox for the macOS Runner with no additional capabilities.",
+      "tags": [
+        "configuration",
+        "entitlements",
+        "macos",
+        "security",
+        "sandbox"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:flutter/macos/RunnerTests/RunnerTests.swift",
+      "type": "file",
+      "name": "RunnerTests.swift",
+      "filePath": "flutter/macos/RunnerTests/RunnerTests.swift",
+      "summary": "Empty XCTest scaffold for the macOS Runner target generated by Flutter; no real tests are implemented.",
+      "tags": [
+        "test",
+        "macos",
+        "boilerplate",
+        "xctest"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:flutter/pubspec.yaml",
+      "type": "config",
+      "name": "pubspec.yaml",
+      "filePath": "flutter/pubspec.yaml",
+      "summary": "Dart/Flutter package manifest declaring the SDK constraint and runtime dependencies (flutter, flutter_onnxruntime, just_audio, logger, path_provider) plus bundled assets for ONNX models and voice styles.",
+      "tags": [
+        "configuration",
+        "dependencies",
+        "flutter",
+        "build-system",
+        "pubspec"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ios/ExampleiOSApp/App.swift",
+      "type": "file",
+      "name": "App.swift",
+      "filePath": "ios/ExampleiOSApp/App.swift",
+      "summary": "SwiftUI @main entry point for the Supertonic iOS demo app that loads ContentView as the root scene.",
+      "tags": [
+        "entry-point",
+        "swiftui",
+        "ios-app"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Tiny @main App struct using SwiftUI's WindowGroup scene API."
+    },
+    {
+      "id": "file:ios/ExampleiOSApp/AudioPlayer.swift",
+      "type": "file",
+      "name": "AudioPlayer.swift",
+      "filePath": "ios/ExampleiOSApp/AudioPlayer.swift",
+      "summary": "AVAudioPlayer wrapper that plays synthesized WAV files from a URL with a completion callback for the SwiftUI UI layer.",
+      "tags": [
+        "audio-playback",
+        "utility",
+        "ios-app"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ios/ExampleiOSApp/ContentView.swift",
+      "type": "file",
+      "name": "ContentView.swift",
+      "filePath": "ios/ExampleiOSApp/ContentView.swift",
+      "summary": "SwiftUI root view rendering the TTS demo UI with text input, voice/language pickers, NFE slider, generate/play buttons, and RTF metrics bound to TTSViewModel.",
+      "tags": [
+        "ui-component",
+        "swiftui",
+        "view",
+        "ios-app"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Declarative SwiftUI view tree with @StateObject view model binding."
+    },
+    {
+      "id": "config:ios/ExampleiOSApp/Info.plist",
+      "type": "config",
+      "name": "Info.plist",
+      "filePath": "ios/ExampleiOSApp/Info.plist",
+      "summary": "iOS application metadata plist declaring bundle identifier, display name, launch screen, and required device capabilities for the Supertonic demo app.",
+      "tags": [
+        "configuration",
+        "ios-app",
+        "bundle-metadata"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ios/ExampleiOSApp/TTSService.swift",
+      "type": "file",
+      "name": "TTSService.swift",
+      "filePath": "ios/ExampleiOSApp/TTSService.swift",
+      "summary": "iOS TTS facade that loads the bundled ONNX model directory and voice style JSONs and exposes an async synthesize() method returning a WAV file URL.",
+      "tags": [
+        "service",
+        "tts-pipeline",
+        "onnx-runtime",
+        "ios-app"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Uses Bundle.main resource lookup with multiple candidate subdirectories to locate bundled ONNX assets."
+    },
+    {
+      "id": "file:ios/ExampleiOSApp/TTSViewModel.swift",
+      "type": "file",
+      "name": "TTSViewModel.swift",
+      "filePath": "ios/ExampleiOSApp/TTSViewModel.swift",
+      "summary": "MainActor ObservableObject view model that wires TTSService synthesis, AudioPlayer playback, and @Published UI state (text, NFE, voice, language, RTF metrics) to ContentView.",
+      "tags": [
+        "view-model",
+        "state-management",
+        "swiftui",
+        "ios-app"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Combines @MainActor isolation with async Task and explicit MainActor.run hops for UI updates."
+    },
+    {
+      "id": "config:ios/ExampleiOSApp/project.yml",
+      "type": "config",
+      "name": "project.yml",
+      "filePath": "ios/ExampleiOSApp/project.yml",
+      "summary": "XcodeGen project specification that generates the SupertonicDemo iOS Xcode project with SwiftPM dependencies, target settings, and bundled ONNX/voice_styles resources.",
+      "tags": [
+        "configuration",
+        "xcodegen",
+        "ios-app",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:ios/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "ios/README.md",
+      "summary": "Setup guide for the iOS demo app covering ONNX asset placement, XcodeGen-based project generation, and running the SwiftUI demo on device or simulator.",
+      "tags": [
+        "documentation",
+        "ios-app",
+        "getting-started"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:java/ExampleONNX.java",
+      "type": "file",
+      "name": "ExampleONNX.java",
+      "filePath": "java/ExampleONNX.java",
+      "summary": "CLI entry point for the Java ONNX example that parses arguments, loads the TTS pipeline via Helper, chunks input text, runs synthesis, and writes a WAV file.",
+      "tags": [
+        "entry-point",
+        "cli",
+        "tts-pipeline",
+        "java-example"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:java/ExampleONNX.java:ExampleONNX",
+      "type": "class",
+      "name": "ExampleONNX",
+      "filePath": "java/ExampleONNX.java",
+      "lineRange": [
+        9,
+        183
+      ],
+      "summary": "Top-level class that hosts parseArgs and main, orchestrating the end-to-end ONNX TTS run for the Java CLI example.",
+      "tags": [
+        "entry-point",
+        "cli",
+        "orchestrator"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:java/ExampleONNX.java:parseArgs",
+      "type": "function",
+      "name": "parseArgs",
+      "filePath": "java/ExampleONNX.java",
+      "lineRange": [
+        32,
+        77
+      ],
+      "summary": "Parses CLI flags (--onnx_dir, --voice, --text, --lang, --nfe, --out) into a configuration map with defaults.",
+      "tags": [
+        "cli",
+        "arg-parsing",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:java/ExampleONNX.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "java/ExampleONNX.java",
+      "lineRange": [
+        82,
+        182
+      ],
+      "summary": "Main driver that loads the ONNX TextToSpeech model and voice style, chunks the input text, synthesizes audio per chunk, concatenates output, and writes the WAV result with timing logs.",
+      "tags": [
+        "entry-point",
+        "tts-pipeline",
+        "orchestrator"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:java/Helper.java",
+      "type": "file",
+      "name": "Helper.java",
+      "filePath": "java/Helper.java",
+      "summary": "Self-contained Java TTS pipeline implementing Unicode text preprocessing, ONNX model loading, multi-stage inference (text encoder, duration predictor, vector estimator, vocoder), sentence chunking, and WAV writing for the Supertonic demo.",
+      "tags": [
+        "tts-pipeline",
+        "onnx-runtime",
+        "utility",
+        "java-example"
+      ],
+      "complexity": "complex",
+      "languageNotes": "Bundles configuration, voice style, processor, and inference classes plus a static Helper class \u2014 mirrors the Python helper.py module."
+    },
+    {
+      "id": "class:java/Helper.java:Languages",
+      "type": "class",
+      "name": "Languages",
+      "filePath": "java/Helper.java",
+      "lineRange": [
+        24,
+        30
+      ],
+      "summary": "Static registry of supported language codes (en, ko, ja, plus 28 European/Asian languages and 'na') with an isValid helper.",
+      "tags": [
+        "language-support",
+        "constants",
+        "validation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:java/Helper.java:UnicodeProcessor",
+      "type": "class",
+      "name": "UnicodeProcessor",
+      "filePath": "java/Helper.java",
+      "lineRange": [
+        67,
+        256
+      ],
+      "summary": "Tokenizer that strips emojis, NFKC-normalizes text, splits into Unicode code points, and maps them through a JSON indexer to model input ids plus an attention mask.",
+      "tags": [
+        "preprocessing",
+        "tokenizer",
+        "unicode"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:java/Helper.java:TextToSpeech",
+      "type": "class",
+      "name": "TextToSpeech",
+      "filePath": "java/Helper.java",
+      "lineRange": [
+        261,
+        506
+      ],
+      "summary": "End-to-end synthesizer class wrapping the four ONNX models \u2014 runs text encoding, duration prediction, latent sampling, and vocoder decoding to produce a waveform plus duration.",
+      "tags": [
+        "tts-pipeline",
+        "onnx-runtime",
+        "inference"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:java/Helper.java:Helper",
+      "type": "class",
+      "name": "Helper",
+      "filePath": "java/Helper.java",
+      "lineRange": [
+        555,
+        954
+      ],
+      "summary": "Static utility class providing chunkText, sentence splitting, voice style/JSON loading, tensor builders, WAV writing, and a timer used across the Java TTS example.",
+      "tags": [
+        "utility",
+        "loader",
+        "io"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:java/Helper.java:preprocessText",
+      "type": "function",
+      "name": "preprocessText",
+      "filePath": "java/Helper.java",
+      "lineRange": [
+        141,
+        224
+      ],
+      "summary": "Normalizes input text by replacing curly quotes, removing emojis, applying language-aware regex cleanup, and collapsing whitespace before tokenization.",
+      "tags": [
+        "preprocessing",
+        "text-normalization",
+        "regex"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:java/Helper.java:_infer",
+      "type": "function",
+      "name": "_infer",
+      "filePath": "java/Helper.java",
+      "lineRange": [
+        288,
+        402
+      ],
+      "summary": "Core inference routine that runs the text encoder, duration predictor, vector estimator (diffusion sampling), and vocoder ONNX sessions to convert tokens plus style into raw audio samples.",
+      "tags": [
+        "inference",
+        "onnx-runtime",
+        "tts-pipeline"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:java/Helper.java:sampleNoisyLatent",
+      "type": "function",
+      "name": "sampleNoisyLatent",
+      "filePath": "java/Helper.java",
+      "lineRange": [
+        404,
+        446
+      ],
+      "summary": "Performs iterative diffusion-style sampling on the latent tensor using the vector_estimator model over NFE steps to refine the speech latent.",
+      "tags": [
+        "diffusion",
+        "inference",
+        "sampling"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:java/Helper.java:chunkText",
+      "type": "function",
+      "name": "chunkText",
+      "filePath": "java/Helper.java",
+      "lineRange": [
+        567,
+        688
+      ],
+      "summary": "Sentence-aware text chunker that splits long input into model-sized pieces while preserving sentence boundaries and respecting a token budget.",
+      "tags": [
+        "chunking",
+        "preprocessing",
+        "text-processing"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:java/Helper.java:splitSentences",
+      "type": "function",
+      "name": "splitSentences",
+      "filePath": "java/Helper.java",
+      "lineRange": [
+        693,
+        705
+      ],
+      "summary": "Splits text into sentence-like units using punctuation heuristics for use by chunkText.",
+      "tags": [
+        "chunking",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:java/Helper.java:loadVoiceStyle",
+      "type": "function",
+      "name": "loadVoiceStyle",
+      "filePath": "java/Helper.java",
+      "lineRange": [
+        710,
+        778
+      ],
+      "summary": "Reads one or more voice style JSON files, averages the latent style vectors, and constructs a Style instance containing TTL and DP tensor inputs.",
+      "tags": [
+        "loader",
+        "voice-style",
+        "io"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:java/Helper.java:loadTextToSpeech",
+      "type": "function",
+      "name": "loadTextToSpeech",
+      "filePath": "java/Helper.java",
+      "lineRange": [
+        783,
+        806
+      ],
+      "summary": "Constructs a TextToSpeech instance by loading the unicode processor, ONNX sessions for all four model files, and TTS config from a directory.",
+      "tags": [
+        "loader",
+        "factory",
+        "onnx-runtime"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:java/Helper.java:writeWavFile",
+      "type": "function",
+      "name": "writeWavFile",
+      "filePath": "java/Helper.java",
+      "lineRange": [
+        854,
+        869
+      ],
+      "summary": "Writes a 16-bit PCM WAV file from a float sample array using javax.sound.sampled.",
+      "tags": [
+        "io",
+        "audio",
+        "wav"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:java/Helper.java:createFloatTensor",
+      "type": "function",
+      "name": "createFloatTensor",
+      "filePath": "java/Helper.java",
+      "lineRange": [
+        903,
+        920
+      ],
+      "summary": "Creates an OnnxTensor from a Java float array with a specified shape using FloatBuffer.",
+      "tags": [
+        "onnx-runtime",
+        "tensor",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:java/Helper.java:createLongTensor",
+      "type": "function",
+      "name": "createLongTensor",
+      "filePath": "java/Helper.java",
+      "lineRange": [
+        925,
+        939
+      ],
+      "summary": "Creates an OnnxTensor of int64 ids from a Java long array with the supplied shape.",
+      "tags": [
+        "onnx-runtime",
+        "tensor",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:java/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "java/README.md",
+      "summary": "Java example documentation describing Maven setup, ONNX asset placement, command-line invocation, and supported CLI flags for the Supertonic Java demo.",
+      "tags": [
+        "documentation",
+        "java-example",
+        "getting-started"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:java/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "java/pom.xml",
+      "summary": "Maven project descriptor declaring ONNX Runtime and Jackson dependencies, exec plugin configuration, and the ExampleONNX main class for the Java demo.",
+      "tags": [
+        "configuration",
+        "maven",
+        "build-system",
+        "java-example"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:nodejs/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "nodejs/README.md",
+      "summary": "Node.js example documentation covering npm install, ONNX asset placement, and CLI usage for running the JavaScript Supertonic demo.",
+      "tags": [
+        "documentation",
+        "nodejs-example",
+        "getting-started"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:nodejs/example_onnx.js",
+      "type": "file",
+      "name": "example_onnx.js",
+      "filePath": "nodejs/example_onnx.js",
+      "summary": "Node.js CLI entry script that parses arguments, loads the ONNX TTS pipeline from helper.js, chunks text, runs synthesis, and writes a WAV file.",
+      "tags": [
+        "entry-point",
+        "cli",
+        "tts-pipeline",
+        "nodejs-example"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:nodejs/example_onnx.js:parseArgs",
+      "type": "function",
+      "name": "parseArgs",
+      "filePath": "nodejs/example_onnx.js",
+      "lineRange": [
+        13,
+        53
+      ],
+      "summary": "Parses Node CLI args (--onnx_dir, --voice, --text, --lang, --nfe, --out) into an options object with defaults.",
+      "tags": [
+        "cli",
+        "arg-parsing",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:nodejs/example_onnx.js:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "nodejs/example_onnx.js",
+      "lineRange": [
+        58,
+        113
+      ],
+      "summary": "Async main driver that loads the TextToSpeech pipeline, chunks input text, calls synthesis per chunk, concatenates Float32 audio, and writes a WAV file with timing logs.",
+      "tags": [
+        "entry-point",
+        "tts-pipeline",
+        "orchestrator",
+        "async"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:nodejs/helper.js",
+      "type": "file",
+      "name": "helper.js",
+      "filePath": "nodejs/helper.js",
+      "summary": "Node.js TTS pipeline module mirroring py/helper.py \u2014 provides UnicodeProcessor, Style, TextToSpeech classes plus ONNX loading, voice style loading, WAV writing, sentence chunking, and timing helpers.",
+      "tags": [
+        "tts-pipeline",
+        "onnx-runtime",
+        "utility",
+        "nodejs-example"
+      ],
+      "complexity": "complex",
+      "languageNotes": "CommonJS module exporting loaders and utilities; classes are kept module-private and only loader factories are exported."
+    },
+    {
+      "id": "class:nodejs/helper.js:UnicodeProcessor",
+      "type": "class",
+      "name": "UnicodeProcessor",
+      "filePath": "nodejs/helper.js",
+      "lineRange": [
+        13,
+        128
+      ],
+      "summary": "Tokenizer class that normalizes text, removes emojis, splits to code points, and maps to model input ids using a JSON unicode indexer.",
+      "tags": [
+        "preprocessing",
+        "tokenizer",
+        "unicode"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:nodejs/helper.js:TextToSpeech",
+      "type": "class",
+      "name": "TextToSpeech",
+      "filePath": "nodejs/helper.js",
+      "lineRange": [
+        143,
+        303
+      ],
+      "summary": "End-to-end synthesizer class that wraps the four ONNX sessions to produce audio samples plus duration from text, language, style, and NFE inputs.",
+      "tags": [
+        "tts-pipeline",
+        "onnx-runtime",
+        "inference"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:nodejs/helper.js:loadVoiceStyle",
+      "type": "function",
+      "name": "loadVoiceStyle",
+      "filePath": "nodejs/helper.js",
+      "lineRange": [
+        379,
+        419
+      ],
+      "summary": "Loads one or more voice style JSON files, averages the style vectors, and returns a Style instance with tensor inputs for TTL and DP models.",
+      "tags": [
+        "loader",
+        "voice-style",
+        "io"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:nodejs/helper.js:loadTextToSpeech",
+      "type": "function",
+      "name": "loadTextToSpeech",
+      "filePath": "nodejs/helper.js",
+      "lineRange": [
+        424,
+        438
+      ],
+      "summary": "Factory that loads the unicode processor, four ONNX sessions, and tts config from an onnx directory and returns a configured TextToSpeech instance.",
+      "tags": [
+        "loader",
+        "factory",
+        "onnx-runtime"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:nodejs/helper.js:writeWavFile",
+      "type": "function",
+      "name": "writeWavFile",
+      "filePath": "nodejs/helper.js",
+      "lineRange": [
+        460,
+        496
+      ],
+      "summary": "Writes a 16-bit PCM WAV file from a Float32Array sample buffer, building the RIFF header and writing bytes via fs.",
+      "tags": [
+        "io",
+        "audio",
+        "wav"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:nodejs/helper.js:chunkText",
+      "type": "function",
+      "name": "chunkText",
+      "filePath": "nodejs/helper.js",
+      "lineRange": [
+        522,
+        559
+      ],
+      "summary": "Splits text into model-sized chunks at sentence boundaries while respecting a token budget for the encoder.",
+      "tags": [
+        "chunking",
+        "preprocessing",
+        "text-processing"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:nodejs/package.json",
+      "type": "config",
+      "name": "package.json",
+      "filePath": "nodejs/package.json",
+      "summary": "npm manifest declaring the supertonic-nodejs example metadata, dependencies (onnxruntime-node), and the start script for example_onnx.js.",
+      "tags": [
+        "configuration",
+        "npm",
+        "build-system",
+        "nodejs-example"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:py/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "py/README.md",
+      "summary": "Python example documentation covering pip install, ONNX asset placement, and CLI usage for both the from-source (example_onnx.py) and PyPI (example_pypi.py) demos.",
+      "tags": [
+        "documentation",
+        "python-example",
+        "getting-started"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:py/example_onnx.py",
+      "type": "file",
+      "name": "example_onnx.py",
+      "filePath": "py/example_onnx.py",
+      "summary": "Python CLI entry script that parses arguments, loads the ONNX TTS pipeline from helper.py, chunks input text, runs synthesis, and writes a WAV file via soundfile.",
+      "tags": [
+        "entry-point",
+        "cli",
+        "tts-pipeline",
+        "python-example"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:py/example_onnx.py:parse_args",
+      "type": "function",
+      "name": "parse_args",
+      "filePath": "py/example_onnx.py",
+      "lineRange": [
+        9,
+        70
+      ],
+      "summary": "Builds the argparse parser with options for onnx_dir, voice style, text, language, NFE, output path, and verbosity.",
+      "tags": [
+        "cli",
+        "arg-parsing",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:py/example_pypi.py",
+      "type": "file",
+      "name": "example_pypi.py",
+      "filePath": "py/example_pypi.py",
+      "summary": "Minimal example demonstrating use of the published supertonic PyPI package \u2014 instantiates the model and synthesizes a sample utterance to a WAV file.",
+      "tags": [
+        "entry-point",
+        "example",
+        "python-example",
+        "pypi"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:py/helper.py",
+      "type": "file",
+      "name": "helper.py",
+      "filePath": "py/helper.py",
+      "summary": "Canonical Python TTS pipeline module containing UnicodeProcessor, Style, and TextToSpeech classes plus ONNX loaders, voice-style loader, sentence chunker, and timing helpers \u2014 used by example_onnx.py and mirrored across language ports.",
+      "tags": [
+        "tts-pipeline",
+        "onnx-runtime",
+        "utility",
+        "python-example"
+      ],
+      "complexity": "complex",
+      "languageNotes": "Reference implementation that the Java, Node.js, Swift, and other language examples port directly."
+    },
+    {
+      "id": "class:py/helper.py:UnicodeProcessor",
+      "type": "class",
+      "name": "UnicodeProcessor",
+      "filePath": "py/helper.py",
+      "lineRange": [
+        16,
+        131
+      ],
+      "summary": "Text preprocessor that strips emojis, NFKC-normalizes, splits to code points, and maps to model token ids via a JSON indexer.",
+      "tags": [
+        "preprocessing",
+        "tokenizer",
+        "unicode"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:py/helper.py:TextToSpeech",
+      "type": "class",
+      "name": "TextToSpeech",
+      "filePath": "py/helper.py",
+      "lineRange": [
+        140,
+        254
+      ],
+      "summary": "Python synthesizer class that orchestrates text encoding, duration prediction, diffusion-style latent sampling, and vocoder decoding using onnxruntime sessions to produce a waveform plus duration.",
+      "tags": [
+        "tts-pipeline",
+        "onnx-runtime",
+        "inference"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:py/helper.py:load_onnx_all",
+      "type": "function",
+      "name": "load_onnx_all",
+      "filePath": "py/helper.py",
+      "lineRange": [
+        289,
+        306
+      ],
+      "summary": "Loads all four ONNX model sessions (text encoder, duration predictor, vector estimator, vocoder) from the onnx directory.",
+      "tags": [
+        "loader",
+        "onnx-runtime",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:py/helper.py:load_text_to_speech",
+      "type": "function",
+      "name": "load_text_to_speech",
+      "filePath": "py/helper.py",
+      "lineRange": [
+        322,
+        336
+      ],
+      "summary": "Factory that wires the unicode processor, ONNX sessions, and tts config into a ready-to-use TextToSpeech instance.",
+      "tags": [
+        "loader",
+        "factory",
+        "onnx-runtime"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:py/helper.py:load_voice_style",
+      "type": "function",
+      "name": "load_voice_style",
+      "filePath": "py/helper.py",
+      "lineRange": [
+        339,
+        367
+      ],
+      "summary": "Loads one or more voice style JSON files, averages the latent vectors, and returns a Style object with numpy tensors for TTL and DP inputs.",
+      "tags": [
+        "loader",
+        "voice-style",
+        "io"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:py/helper.py:chunk_text",
+      "type": "function",
+      "name": "chunk_text",
+      "filePath": "py/helper.py",
+      "lineRange": [
+        388,
+        429
+      ],
+      "summary": "Splits long input text into sentence-aligned chunks that fit the encoder's token budget for batched synthesis.",
+      "tags": [
+        "chunking",
+        "preprocessing",
+        "text-processing"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:py/pyproject.toml",
+      "type": "config",
+      "name": "pyproject.toml",
+      "filePath": "py/pyproject.toml",
+      "summary": "Python project metadata declaring build backend, package name, and dependencies for the Supertonic Python example.",
+      "tags": [
+        "configuration",
+        "python-packaging",
+        "build-system",
+        "python-example"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:py/requirements.txt",
+      "type": "config",
+      "name": "requirements.txt",
+      "filePath": "py/requirements.txt",
+      "summary": "Pip dependency pin list for the Python example \u2014 onnxruntime, numpy, soundfile, and supporting libraries needed by helper.py.",
+      "tags": [
+        "configuration",
+        "python-packaging",
+        "dependencies"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:rust/Cargo.toml",
+      "type": "config",
+      "name": "Cargo.toml",
+      "filePath": "rust/Cargo.toml",
+      "summary": "Cargo package manifest declaring the Rust example binary and dependencies including `ort` (ONNX Runtime), `ndarray`, `serde`, `clap`, and `hound` for WAV output.",
+      "tags": [
+        "configuration",
+        "rust",
+        "cargo",
+        "build-system",
+        "dependencies"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:rust/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "rust/README.md",
+      "summary": "Getting-started guide for the Rust example covering setup, ONNX Runtime configuration, CLI usage, and code structure of the Supertonic TTS Rust SDK demo.",
+      "tags": [
+        "documentation",
+        "rust",
+        "getting-started",
+        "tts"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:rust/src/example_onnx.rs",
+      "type": "file",
+      "name": "example_onnx.rs",
+      "filePath": "rust/src/example_onnx.rs",
+      "summary": "Rust binary entry point that parses CLI args with `clap`, loads the TTS pipeline from `helper.rs`, runs inference for given text/language, and writes the resulting audio to a WAV file.",
+      "tags": [
+        "entry-point",
+        "cli",
+        "rust",
+        "tts",
+        "binary"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Uses `clap` derive macros for argument parsing and `tokio`-free synchronous main."
+    },
+    {
+      "id": "file:rust/src/helper.rs",
+      "type": "file",
+      "name": "helper.rs",
+      "filePath": "rust/src/helper.rs",
+      "summary": "Core Rust TTS pipeline: defines configs, Unicode text preprocessor, sentence chunker, and the `TextToSpeech` driver that orchestrates the duration predictor, text encoder, vector estimator, and vocoder ONNX sessions to synthesize speech.",
+      "tags": [
+        "service",
+        "tts",
+        "rust",
+        "onnx",
+        "pipeline"
+      ],
+      "complexity": "complex",
+      "languageNotes": "Uses `ort` ONNX Runtime crate with `ndarray` tensors; heavy use of `serde` for config deserialization."
+    },
+    {
+      "id": "function:rust/src/example_onnx.rs:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "rust/src/example_onnx.rs",
+      "lineRange": [
+        58,
+        144
+      ],
+      "summary": "Parses CLI arguments, instantiates the Supertonic TTS pipeline, loads style embeddings, runs inference, and writes WAV output.",
+      "tags": [
+        "entry-point",
+        "cli",
+        "orchestration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:rust/src/example_onnx.rs:Args",
+      "type": "class",
+      "name": "Args",
+      "filePath": "rust/src/example_onnx.rs",
+      "lineRange": [
+        16,
+        56
+      ],
+      "summary": "Clap-derived CLI argument struct defining options for ONNX directory, voice style paths, text input, language, output file, and sampling parameters.",
+      "tags": [
+        "cli",
+        "config",
+        "data-model"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:rust/src/helper.rs:Config",
+      "type": "class",
+      "name": "Config",
+      "filePath": "rust/src/helper.rs",
+      "lineRange": [
+        29,
+        32
+      ],
+      "summary": "Top-level model configuration struct deserialized from the ONNX bundle's JSON config.",
+      "tags": [
+        "data-model",
+        "config"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:rust/src/helper.rs:AEConfig",
+      "type": "class",
+      "name": "AEConfig",
+      "filePath": "rust/src/helper.rs",
+      "lineRange": [
+        35,
+        38
+      ],
+      "summary": "Acoustic encoder configuration struct (sample rate, chunk size, compression) used by the vocoder.",
+      "tags": [
+        "data-model",
+        "config",
+        "audio"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:rust/src/helper.rs:TTLConfig",
+      "type": "class",
+      "name": "TTLConfig",
+      "filePath": "rust/src/helper.rs",
+      "lineRange": [
+        41,
+        44
+      ],
+      "summary": "Text-to-latent configuration struct describing latent dimensions and model hyperparameters.",
+      "tags": [
+        "data-model",
+        "config",
+        "tts"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:rust/src/helper.rs:UnicodeProcessor",
+      "type": "class",
+      "name": "UnicodeProcessor",
+      "filePath": "rust/src/helper.rs",
+      "lineRange": [
+        77,
+        79
+      ],
+      "summary": "Tokenizer that converts text into Unicode-codepoint-indexed token IDs and language-specific masks for the duration predictor and text encoder.",
+      "tags": [
+        "tokenizer",
+        "preprocessing",
+        "unicode"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:rust/src/helper.rs:TextToSpeech",
+      "type": "class",
+      "name": "TextToSpeech",
+      "filePath": "rust/src/helper.rs",
+      "lineRange": [
+        544,
+        552
+      ],
+      "summary": "Main TTS driver coordinating duration prediction, text encoding, vector estimation, and vocoder ONNX sessions; supports per-text and batched synthesis with chunking and noise sampling.",
+      "tags": [
+        "service",
+        "tts",
+        "onnx",
+        "orchestration"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:rust/src/helper.rs:load_text_to_speech",
+      "type": "function",
+      "name": "load_text_to_speech",
+      "filePath": "rust/src/helper.rs",
+      "lineRange": [
+        805,
+        838
+      ],
+      "summary": "Factory that loads configs, instantiates the Unicode processor, and constructs ONNX Runtime sessions for the four model components (DP, text encoder, vector estimator, vocoder) with optional GPU support.",
+      "tags": [
+        "factory",
+        "loader",
+        "onnx",
+        "tts"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:rust/src/helper.rs:load_voice_style",
+      "type": "function",
+      "name": "load_voice_style",
+      "filePath": "rust/src/helper.rs",
+      "lineRange": [
+        737,
+        802
+      ],
+      "summary": "Loads one or more voice-style JSON files and averages their style component tensors to produce a single Style embedding for synthesis.",
+      "tags": [
+        "loader",
+        "voice-style",
+        "serialization"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:rust/src/helper.rs:chunk_text",
+      "type": "function",
+      "name": "chunk_text",
+      "filePath": "rust/src/helper.rs",
+      "lineRange": [
+        330,
+        450
+      ],
+      "summary": "Splits long text into sentence-aware chunks bounded by `max_len` for memory-efficient batched inference.",
+      "tags": [
+        "utility",
+        "text-processing",
+        "chunking"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:rust/src/helper.rs:preprocess_text",
+      "type": "function",
+      "name": "preprocess_text",
+      "filePath": "rust/src/helper.rs",
+      "lineRange": [
+        122,
+        213
+      ],
+      "summary": "Normalizes input text and language code, converts characters to Unicode codepoint IDs, and produces padded tensors and attention masks for model input.",
+      "tags": [
+        "preprocessing",
+        "tokenization",
+        "validation"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:rust/src/helper.rs:write_wav_file",
+      "type": "function",
+      "name": "write_wav_file",
+      "filePath": "rust/src/helper.rs",
+      "lineRange": [
+        294,
+        316
+      ],
+      "summary": "Writes float32 PCM audio samples to a WAV file at the configured sample rate using the `hound` crate.",
+      "tags": [
+        "utility",
+        "audio",
+        "wav",
+        "serialization"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:rust/src/helper.rs:sample_noisy_latent",
+      "type": "function",
+      "name": "sample_noisy_latent",
+      "filePath": "rust/src/helper.rs",
+      "lineRange": [
+        238,
+        288
+      ],
+      "summary": "Samples random latent noise tensors sized for the requested audio duration, sample rate, and latent dimensions to seed the vector estimator.",
+      "tags": [
+        "utility",
+        "tensor",
+        "random",
+        "tts"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:rust/src/helper.rs:split_sentences",
+      "type": "function",
+      "name": "split_sentences",
+      "filePath": "rust/src/helper.rs",
+      "lineRange": [
+        452,
+        497
+      ],
+      "summary": "Splits text into sentences using punctuation heuristics for chunked inference.",
+      "tags": [
+        "utility",
+        "text-processing"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:rust/src/helper.rs:TextToSpeech._infer",
+      "type": "function",
+      "name": "_infer",
+      "filePath": "rust/src/helper.rs",
+      "lineRange": [
+        575,
+        680
+      ],
+      "summary": "Internal inference routine running the four ONNX models in sequence (DP, text encoder, iterative vector estimator, vocoder) to produce raw audio samples.",
+      "tags": [
+        "inference",
+        "onnx",
+        "tts",
+        "core"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:rust/src/helper.rs:TextToSpeech.call",
+      "type": "function",
+      "name": "call",
+      "filePath": "rust/src/helper.rs",
+      "lineRange": [
+        682,
+        718
+      ],
+      "summary": "Public synthesis entry that chunks input text and concatenates per-chunk audio with optional silence padding between chunks.",
+      "tags": [
+        "api",
+        "tts",
+        "orchestration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:rust/src/helper.rs:TextToSpeech.batch",
+      "type": "function",
+      "name": "batch",
+      "filePath": "rust/src/helper.rs",
+      "lineRange": [
+        720,
+        729
+      ],
+      "summary": "Batched synthesis convenience that runs `_infer` over a list of text/language pairs.",
+      "tags": [
+        "api",
+        "tts",
+        "batch"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:swift/Package.resolved",
+      "type": "config",
+      "name": "Package.resolved",
+      "filePath": "swift/Package.resolved",
+      "summary": "Swift Package Manager lockfile pinning the exact versions of resolved dependencies (e.g. onnxruntime).",
+      "tags": [
+        "configuration",
+        "swift",
+        "dependencies",
+        "lockfile"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:swift/Package.swift",
+      "type": "config",
+      "name": "Package.swift",
+      "filePath": "swift/Package.swift",
+      "summary": "Swift Package manifest declaring the executable target `ExampleONNX` and its dependency on `onnxruntime-swift-package-manager`.",
+      "tags": [
+        "configuration",
+        "swift",
+        "package-manager",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:swift/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "swift/README.md",
+      "summary": "Getting-started guide for the macOS/Linux Swift CLI example showing how to build with SwiftPM, configure ONNX Runtime, and run TTS synthesis.",
+      "tags": [
+        "documentation",
+        "swift",
+        "getting-started",
+        "tts"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:swift/Sources/ExampleONNX.swift",
+      "type": "file",
+      "name": "ExampleONNX.swift",
+      "filePath": "swift/Sources/ExampleONNX.swift",
+      "summary": "Swift Package executable entry point that parses command-line arguments, initializes the TTS pipeline from `Helper.swift`, performs synthesis, and writes the WAV output.",
+      "tags": [
+        "entry-point",
+        "cli",
+        "swift",
+        "tts"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Uses `@main` attribute on a struct and Swift's `CommandLine.arguments` for parsing."
+    },
+    {
+      "id": "file:swift/Sources/Helper.swift",
+      "type": "file",
+      "name": "Helper.swift",
+      "filePath": "swift/Sources/Helper.swift",
+      "summary": "Swift port of the Supertonic TTS pipeline using onnxruntime-swift: defines config structs, Unicode preprocessor, sentence chunker, and the `TextToSpeech` driver coordinating the four ONNX sessions.",
+      "tags": [
+        "service",
+        "tts",
+        "swift",
+        "onnx",
+        "pipeline"
+      ],
+      "complexity": "complex",
+      "languageNotes": "Uses Swift's `ORTSession` API with manual tensor shape management."
+    },
+    {
+      "id": "document:web/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "web/README.md",
+      "summary": "Getting-started guide for the Vite-powered browser demo, covering installation, asset placement, ONNX Runtime Web backends (WebGPU/WASM), and dev/build workflow.",
+      "tags": [
+        "documentation",
+        "web",
+        "vite",
+        "getting-started"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:web/helper.js",
+      "type": "file",
+      "name": "helper.js",
+      "filePath": "web/helper.js",
+      "summary": "Browser-side TTS pipeline mirroring the other SDK examples: defines the Unicode tokenizer, `TextToSpeech` driver, voice-style loader, chunker, and WAV encoder using onnxruntime-web tensors.",
+      "tags": [
+        "service",
+        "tts",
+        "onnx",
+        "web",
+        "pipeline"
+      ],
+      "complexity": "complex",
+      "languageNotes": "ES module using async/await with `ort.Tensor` and dynamic execution providers (WebGPU/WASM)."
+    },
+    {
+      "id": "file:web/index.html",
+      "type": "file",
+      "name": "index.html",
+      "filePath": "web/index.html",
+      "summary": "Single-page entry HTML loading the Vite-bundled `main.js` and providing the text input, language selector, generate button, and audio playback UI for the browser TTS demo.",
+      "tags": [
+        "entry-point",
+        "html",
+        "ui",
+        "web"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:web/main.js",
+      "type": "file",
+      "name": "main.js",
+      "filePath": "web/main.js",
+      "summary": "Browser UI orchestrator that wires DOM controls to the TTS pipeline in `helper.js`, manages model loading, status messages, error handling, and audio playback.",
+      "tags": [
+        "entry-point",
+        "ui",
+        "web",
+        "orchestration"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:web/package.json",
+      "type": "config",
+      "name": "package.json",
+      "filePath": "web/package.json",
+      "summary": "NPM manifest declaring Vite as a dev dependency and onnxruntime-web as a runtime dependency, with `dev`/`build`/`preview` scripts for the browser demo.",
+      "tags": [
+        "configuration",
+        "npm",
+        "build-system",
+        "web"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:web/style.css",
+      "type": "file",
+      "name": "style.css",
+      "filePath": "web/style.css",
+      "summary": "Stylesheet for the browser demo defining layout, controls, status badges, and audio player styling for `index.html`.",
+      "tags": [
+        "styling",
+        "css",
+        "ui",
+        "web"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:web/vite.config.js",
+      "type": "file",
+      "name": "vite.config.js",
+      "filePath": "web/vite.config.js",
+      "summary": "Vite configuration exposing onnxruntime-web's WASM/JSEP assets and serving the ONNX model bundle from a shared root directory in development.",
+      "tags": [
+        "configuration",
+        "vite",
+        "build-system",
+        "web"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:web/helper.js:loadTextToSpeech",
+      "type": "function",
+      "name": "loadTextToSpeech",
+      "filePath": "web/helper.js",
+      "lineRange": [
+        439,
+        471
+      ],
+      "summary": "Factory that loads configs, instantiates the Unicode processor, and creates the four onnxruntime-web inference sessions, returning a ready `TextToSpeech` instance.",
+      "tags": [
+        "factory",
+        "loader",
+        "onnx",
+        "tts"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:web/helper.js:loadVoiceStyle",
+      "type": "function",
+      "name": "loadVoiceStyle",
+      "filePath": "web/helper.js",
+      "lineRange": [
+        360,
+        408
+      ],
+      "summary": "Fetches one or more voice-style JSON files in the browser and averages their style tensors into a single `Style` embedding.",
+      "tags": [
+        "loader",
+        "voice-style",
+        "web"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:web/helper.js:chunkText",
+      "type": "function",
+      "name": "chunkText",
+      "filePath": "web/helper.js",
+      "lineRange": [
+        476,
+        513
+      ],
+      "summary": "Splits long text into sentence-aware chunks bounded by a maximum length for batched inference.",
+      "tags": [
+        "utility",
+        "text-processing",
+        "chunking"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:web/helper.js:writeWavFile",
+      "type": "function",
+      "name": "writeWavFile",
+      "filePath": "web/helper.js",
+      "lineRange": [
+        518,
+        561
+      ],
+      "summary": "Encodes float32 PCM audio data into a WAV-formatted ArrayBuffer for in-browser playback or download.",
+      "tags": [
+        "utility",
+        "audio",
+        "wav",
+        "serialization"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:web/helper.js:UnicodeProcessor",
+      "type": "class",
+      "name": "UnicodeProcessor",
+      "filePath": "web/helper.js",
+      "lineRange": [
+        13,
+        136
+      ],
+      "summary": "Tokenizer that maps text to Unicode codepoint indices using a JSON vocab, producing padded id tensors and attention masks for model input.",
+      "tags": [
+        "tokenizer",
+        "preprocessing",
+        "unicode"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:web/helper.js:Style",
+      "type": "class",
+      "name": "Style",
+      "filePath": "web/helper.js",
+      "lineRange": [
+        141,
+        146
+      ],
+      "summary": "Container holding the loaded voice-style embedding tensors used to condition synthesis.",
+      "tags": [
+        "data-model",
+        "voice-style"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:web/helper.js:TextToSpeech",
+      "type": "class",
+      "name": "TextToSpeech",
+      "filePath": "web/helper.js",
+      "lineRange": [
+        151,
+        355
+      ],
+      "summary": "Main browser TTS driver coordinating the duration predictor, text encoder, iterative vector estimator, and vocoder ONNX sessions; supports per-text and batched synthesis.",
+      "tags": [
+        "service",
+        "tts",
+        "onnx",
+        "orchestration"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:web/main.js:initializeModels",
+      "type": "function",
+      "name": "initializeModels",
+      "filePath": "web/main.js",
+      "lineRange": [
+        72,
+        123
+      ],
+      "summary": "Initializes the TTS pipeline by loading the model bundle and voice style, updating UI status as it progresses; chooses WebGPU when available and falls back to WASM.",
+      "tags": [
+        "initialization",
+        "onnx",
+        "web",
+        "orchestration"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:web/main.js:generateSpeech",
+      "type": "function",
+      "name": "generateSpeech",
+      "filePath": "web/main.js",
+      "lineRange": [
+        159,
+        274
+      ],
+      "summary": "DOM event handler that reads form inputs, runs TTS inference, builds an in-memory WAV blob, and updates the audio player and download link.",
+      "tags": [
+        "event-handler",
+        "tts",
+        "ui"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:web/main.js:loadStyleFromJSON",
+      "type": "function",
+      "name": "loadStyleFromJSON",
+      "filePath": "web/main.js",
+      "lineRange": [
+        61,
+        69
+      ],
+      "summary": "Fetches a single voice-style JSON file and wraps it via the helper module's loader for use in synthesis.",
+      "tags": [
+        "loader",
+        "voice-style",
+        "web"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:web/vite.config.js:serveRootAssets",
+      "type": "function",
+      "name": "serveRootAssets",
+      "filePath": "web/vite.config.js",
+      "lineRange": [
+        9,
+        32
+      ],
+      "summary": "Custom Vite plugin middleware that serves model assets from a directory above the project root during local development.",
+      "tags": [
+        "plugin",
+        "vite",
+        "middleware",
+        "build-system"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:cpp/example_onnx.cpp",
+      "target": "class:cpp/example_onnx.cpp:Args",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:cpp/example_onnx.cpp",
+      "target": "function:cpp/example_onnx.cpp:parseArgs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:cpp/example_onnx.cpp",
+      "target": "function:cpp/example_onnx.cpp:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:cpp/helper.cpp",
+      "target": "function:cpp/helper.cpp:preprocessText",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:cpp/helper.cpp",
+      "target": "function:cpp/helper.cpp:decomposeCharacter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:cpp/helper.cpp",
+      "target": "function:cpp/helper.cpp:textToUnicodeValues",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:cpp/helper.cpp",
+      "target": "function:cpp/helper.cpp:_infer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:cpp/helper.cpp",
+      "target": "function:cpp/helper.cpp:sampleNoisyLatent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:cpp/helper.cpp",
+      "target": "function:cpp/helper.cpp:call",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:cpp/helper.cpp",
+      "target": "function:cpp/helper.cpp:batch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:cpp/helper.cpp",
+      "target": "function:cpp/helper.cpp:loadOnnxAll",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:cpp/helper.cpp",
+      "target": "function:cpp/helper.cpp:loadCfgs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:cpp/helper.cpp",
+      "target": "function:cpp/helper.cpp:loadVoiceStyle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:cpp/helper.cpp",
+      "target": "function:cpp/helper.cpp:loadTextToSpeech",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:cpp/helper.cpp",
+      "target": "function:cpp/helper.cpp:writeWavFile",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:cpp/helper.cpp",
+      "target": "function:cpp/helper.cpp:arrayToTensor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:cpp/helper.cpp",
+      "target": "function:cpp/helper.cpp:intArrayToTensor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:cpp/helper.cpp",
+      "target": "function:cpp/helper.cpp:sanitizeFilename",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:cpp/helper.cpp",
+      "target": "function:cpp/helper.cpp:chunkText",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:cpp/helper.h",
+      "target": "class:cpp/helper.h:Config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:cpp/helper.h",
+      "target": "class:cpp/helper.h:UnicodeProcessor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:cpp/helper.h",
+      "target": "class:cpp/helper.h:Style",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:cpp/helper.h",
+      "target": "class:cpp/helper.h:TextToSpeech",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:cpp/helper.h",
+      "target": "class:cpp/helper.h:OnnxModels",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:cpp/helper.cpp",
+      "target": "file:cpp/helper.h",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:cpp/example_onnx.cpp",
+      "target": "file:cpp/helper.h",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:cpp/example_onnx.cpp",
+      "target": "file:cpp/helper.cpp",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:cpp/example_onnx.cpp",
+      "target": "function:cpp/helper.cpp:loadTextToSpeech",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:cpp/example_onnx.cpp",
+      "target": "function:cpp/helper.cpp:loadVoiceStyle",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:cpp/example_onnx.cpp",
+      "target": "function:cpp/helper.cpp:writeWavFile",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:cpp/helper.cpp:call",
+      "target": "function:cpp/helper.cpp:_infer",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:cpp/helper.cpp:call",
+      "target": "function:cpp/helper.cpp:chunkText",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:cpp/helper.cpp:batch",
+      "target": "function:cpp/helper.cpp:_infer",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:cpp/helper.cpp:_infer",
+      "target": "function:cpp/helper.cpp:sampleNoisyLatent",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:cpp/helper.cpp:loadTextToSpeech",
+      "target": "function:cpp/helper.cpp:loadCfgs",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:cpp/helper.cpp:loadTextToSpeech",
+      "target": "function:cpp/helper.cpp:loadOnnxAll",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "config:cpp/CMakeLists.txt",
+      "target": "file:cpp/example_onnx.cpp",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:cpp/CMakeLists.txt",
+      "target": "file:cpp/helper.cpp",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:cpp/CMakeLists.txt",
+      "target": "file:cpp/helper.h",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "document:cpp/README.md",
+      "target": "file:cpp/example_onnx.cpp",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:cpp/README.md",
+      "target": "config:cpp/CMakeLists.txt",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:cpp/README.md",
+      "target": "file:cpp/helper.cpp",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:csharp/ExampleONNX.cs",
+      "target": "class:csharp/ExampleONNX.cs:Program",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:csharp/ExampleONNX.cs",
+      "target": "function:csharp/ExampleONNX.cs:ParseArgs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:csharp/ExampleONNX.cs",
+      "target": "function:csharp/ExampleONNX.cs:Main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:csharp/Helper.cs",
+      "target": "class:csharp/Helper.cs:Languages",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:csharp/Helper.cs",
+      "target": "class:csharp/Helper.cs:Config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:csharp/Helper.cs",
+      "target": "class:csharp/Helper.cs:Style",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:csharp/Helper.cs",
+      "target": "class:csharp/Helper.cs:UnicodeProcessor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:csharp/Helper.cs",
+      "target": "class:csharp/Helper.cs:TextToSpeech",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:csharp/Helper.cs",
+      "target": "class:csharp/Helper.cs:Helper",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:csharp/Helper.cs",
+      "target": "function:csharp/Helper.cs:PreprocessText",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:csharp/Helper.cs",
+      "target": "function:csharp/Helper.cs:RemoveEmojis",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:csharp/Helper.cs",
+      "target": "function:csharp/Helper.cs:_Infer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:csharp/Helper.cs",
+      "target": "function:csharp/Helper.cs:SampleNoisyLatent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:csharp/Helper.cs",
+      "target": "function:csharp/Helper.cs:Call",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:csharp/Helper.cs",
+      "target": "function:csharp/Helper.cs:LoadVoiceStyle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:csharp/Helper.cs",
+      "target": "function:csharp/Helper.cs:LoadTextToSpeech",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:csharp/Helper.cs",
+      "target": "function:csharp/Helper.cs:WriteWavFile",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:csharp/Helper.cs",
+      "target": "function:csharp/Helper.cs:ChunkText",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:csharp/Helper.cs",
+      "target": "function:csharp/Helper.cs:LengthToMask",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:csharp/Helper.cs",
+      "target": "function:csharp/Helper.cs:ArrayToTensor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:csharp/Helper.cs",
+      "target": "function:csharp/Helper.cs:IntArrayToTensor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:csharp/Helper.cs",
+      "target": "function:csharp/Helper.cs:SanitizeFilename",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:csharp/ExampleONNX.cs",
+      "target": "file:csharp/Helper.cs",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:csharp/ExampleONNX.cs",
+      "target": "function:csharp/Helper.cs:LoadTextToSpeech",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:csharp/ExampleONNX.cs",
+      "target": "function:csharp/Helper.cs:LoadVoiceStyle",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:csharp/ExampleONNX.cs",
+      "target": "function:csharp/Helper.cs:WriteWavFile",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:csharp/Helper.cs:Call",
+      "target": "function:csharp/Helper.cs:_Infer",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:csharp/Helper.cs:Call",
+      "target": "function:csharp/Helper.cs:ChunkText",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:csharp/Helper.cs:_Infer",
+      "target": "function:csharp/Helper.cs:SampleNoisyLatent",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:csharp/Helper.cs:PreprocessText",
+      "target": "function:csharp/Helper.cs:RemoveEmojis",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "config:csharp/Supertonic.csproj",
+      "target": "file:csharp/ExampleONNX.cs",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:csharp/Supertonic.csproj",
+      "target": "file:csharp/Helper.cs",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "document:csharp/README.md",
+      "target": "file:csharp/ExampleONNX.cs",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:csharp/README.md",
+      "target": "file:csharp/Helper.cs",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:csharp/README.md",
+      "target": "config:csharp/Supertonic.csproj",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:go/example_onnx.go",
+      "target": "class:go/example_onnx.go:Args",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:go/example_onnx.go",
+      "target": "function:go/example_onnx.go:parseArgs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:go/example_onnx.go",
+      "target": "function:go/example_onnx.go:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:go/helper.go",
+      "target": "class:go/helper.go:Config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:go/helper.go",
+      "target": "class:go/helper.go:AEConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:go/helper.go",
+      "target": "class:go/helper.go:TTLConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:go/helper.go",
+      "target": "class:go/helper.go:DPConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:go/helper.go",
+      "target": "class:go/helper.go:VoiceStyleData",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:go/helper.go",
+      "target": "class:go/helper.go:UnicodeProcessor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:go/helper.go",
+      "target": "class:go/helper.go:Style",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:go/helper.go",
+      "target": "class:go/helper.go:TextToSpeech",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:go/helper.go",
+      "target": "function:go/helper.go:NewUnicodeProcessor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:go/helper.go",
+      "target": "function:go/helper.go:Call",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:go/helper.go",
+      "target": "function:go/helper.go:chunkText",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:go/helper.go",
+      "target": "function:go/helper.go:splitSentences",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:go/helper.go",
+      "target": "function:go/helper.go:preprocessText",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:go/helper.go",
+      "target": "function:go/helper.go:lengthToMask",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:go/helper.go",
+      "target": "function:go/helper.go:writeWavFile",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:go/helper.go",
+      "target": "function:go/helper.go:LoadVoiceStyle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:go/helper.go",
+      "target": "function:go/helper.go:sampleNoisyLatent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:go/helper.go",
+      "target": "function:go/helper.go:_infer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:go/helper.go",
+      "target": "function:go/helper.go:LoadTextToSpeech",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:go/helper.go",
+      "target": "function:go/helper.go:InitializeONNXRuntime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:go/helper.go",
+      "target": "function:go/helper.go:LoadCfgs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:go/helper.go",
+      "target": "function:go/helper.go:ArrayToTensor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:go/helper.go",
+      "target": "function:go/helper.go:IntArrayToTensor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:go/helper.go",
+      "target": "function:go/helper.go:sanitizeFilename",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:go/helper.go",
+      "target": "function:go/helper.go:extractWavSegment",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:go/example_onnx.go",
+      "target": "file:go/helper.go",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:go/example_onnx.go",
+      "target": "function:go/helper.go:LoadTextToSpeech",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:go/example_onnx.go",
+      "target": "function:go/helper.go:LoadVoiceStyle",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:go/example_onnx.go",
+      "target": "function:go/helper.go:InitializeONNXRuntime",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:go/example_onnx.go",
+      "target": "function:go/helper.go:writeWavFile",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:go/helper.go:_infer",
+      "target": "function:go/helper.go:sampleNoisyLatent",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:go/helper.go:LoadTextToSpeech",
+      "target": "function:go/helper.go:LoadCfgs",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:go/helper.go:LoadTextToSpeech",
+      "target": "function:go/helper.go:NewUnicodeProcessor",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:go/helper.go:chunkText",
+      "target": "function:go/helper.go:splitSentences",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "config:go/go.mod",
+      "target": "file:go/example_onnx.go",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:go/go.mod",
+      "target": "file:go/helper.go",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:go/go.sum",
+      "target": "config:go/go.mod",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "document:go/README.md",
+      "target": "file:go/example_onnx.go",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:go/README.md",
+      "target": "file:go/helper.go",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:go/README.md",
+      "target": "config:go/go.mod",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:test_all.sh",
+      "target": "function:test_all.sh:show_stats",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:test_all.sh",
+      "target": "function:test_all.sh:run_test",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:test_all.sh",
+      "target": "file:cpp/example_onnx.cpp",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:test_all.sh",
+      "target": "file:csharp/ExampleONNX.cs",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:test_all.sh",
+      "target": "file:go/example_onnx.go",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "file:cpp/example_onnx.cpp",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "file:csharp/ExampleONNX.cs",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "file:go/example_onnx.go",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "document:cpp/README.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "document:csharp/README.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "document:go/README.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:.gitattributes",
+      "target": "file:test_all.sh",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:flutter/lib/helper.dart",
+      "target": "class:flutter/lib/helper.dart:UnicodeProcessor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:flutter/lib/helper.dart",
+      "target": "class:flutter/lib/helper.dart:Style",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:flutter/lib/helper.dart",
+      "target": "class:flutter/lib/helper.dart:TextToSpeech",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:flutter/lib/helper.dart",
+      "target": "function:flutter/lib/helper.dart:preprocessText",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:flutter/lib/helper.dart",
+      "target": "function:flutter/lib/helper.dart:loadTextToSpeech",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:flutter/lib/helper.dart",
+      "target": "function:flutter/lib/helper.dart:loadVoiceStyle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:flutter/lib/helper.dart",
+      "target": "function:flutter/lib/helper.dart:copyModelToFile",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:flutter/lib/helper.dart",
+      "target": "function:flutter/lib/helper.dart:writeWavFile",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:flutter/lib/helper.dart",
+      "target": "function:flutter/lib/helper.dart:preprocessText",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:flutter/lib/helper.dart",
+      "target": "class:flutter/lib/helper.dart:UnicodeProcessor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:flutter/lib/helper.dart",
+      "target": "class:flutter/lib/helper.dart:Style",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:flutter/lib/helper.dart",
+      "target": "class:flutter/lib/helper.dart:TextToSpeech",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:flutter/lib/helper.dart",
+      "target": "function:flutter/lib/helper.dart:loadTextToSpeech",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:flutter/lib/helper.dart",
+      "target": "function:flutter/lib/helper.dart:loadVoiceStyle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:flutter/lib/helper.dart",
+      "target": "function:flutter/lib/helper.dart:writeWavFile",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:flutter/lib/main.dart",
+      "target": "class:flutter/lib/main.dart:SupertonicApp",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:flutter/lib/main.dart",
+      "target": "class:flutter/lib/main.dart:TTSPage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:flutter/lib/main.dart",
+      "target": "class:flutter/lib/main.dart:_TTSPageState",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:flutter/lib/main.dart",
+      "target": "file:flutter/lib/helper.dart",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:flutter/lib/main.dart",
+      "target": "function:flutter/lib/helper.dart:loadTextToSpeech",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:flutter/lib/main.dart",
+      "target": "function:flutter/lib/helper.dart:loadVoiceStyle",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:flutter/lib/main.dart",
+      "target": "function:flutter/lib/helper.dart:writeWavFile",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "config:flutter/pubspec.yaml",
+      "target": "file:flutter/lib/main.dart",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:flutter/pubspec.yaml",
+      "target": "file:flutter/lib/helper.dart",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:flutter/analysis_options.yaml",
+      "target": "file:flutter/lib/main.dart",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:flutter/analysis_options.yaml",
+      "target": "file:flutter/lib/helper.dart",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "document:flutter/README.md",
+      "target": "file:flutter/lib/main.dart",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:flutter/README.md",
+      "target": "file:flutter/lib/helper.dart",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:flutter/macos/Runner/Info.plist",
+      "target": "file:flutter/macos/Runner/AppDelegate.swift",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:flutter/macos/Runner/Configs/Debug.xcconfig",
+      "target": "config:flutter/macos/Flutter/Flutter-Debug.xcconfig",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:flutter/macos/Runner/Configs/Debug.xcconfig",
+      "target": "config:flutter/macos/Runner/Configs/AppInfo.xcconfig",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:flutter/macos/Runner/Configs/Release.xcconfig",
+      "target": "config:flutter/macos/Flutter/Flutter-Release.xcconfig",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:flutter/macos/Runner/Configs/Release.xcconfig",
+      "target": "config:flutter/macos/Runner/Configs/AppInfo.xcconfig",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:flutter/macos/Runner/Info.plist",
+      "target": "config:flutter/macos/Runner/Configs/AppInfo.xcconfig",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:flutter/macos/Podfile",
+      "target": "config:flutter/macos/Flutter/Flutter-Debug.xcconfig",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:flutter/macos/Podfile",
+      "target": "config:flutter/macos/Flutter/Flutter-Release.xcconfig",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:flutter/macos/Runner/MainFlutterWindow.swift",
+      "target": "file:flutter/macos/Flutter/GeneratedPluginRegistrant.swift",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:flutter/macos/Runner/AppDelegate.swift",
+      "target": "file:flutter/macos/Runner/MainFlutterWindow.swift",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:flutter/macos/RunnerTests/RunnerTests.swift",
+      "target": "file:flutter/macos/Runner/AppDelegate.swift",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:ios/ExampleiOSApp/App.swift",
+      "target": "file:ios/ExampleiOSApp/ContentView.swift",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:ios/ExampleiOSApp/ContentView.swift",
+      "target": "file:ios/ExampleiOSApp/TTSViewModel.swift",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:ios/ExampleiOSApp/TTSViewModel.swift",
+      "target": "file:ios/ExampleiOSApp/TTSService.swift",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:ios/ExampleiOSApp/TTSViewModel.swift",
+      "target": "file:ios/ExampleiOSApp/AudioPlayer.swift",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:ios/ExampleiOSApp/Info.plist",
+      "target": "file:ios/ExampleiOSApp/App.swift",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:ios/ExampleiOSApp/project.yml",
+      "target": "file:ios/ExampleiOSApp/App.swift",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:ios/ExampleiOSApp/project.yml",
+      "target": "config:ios/ExampleiOSApp/Info.plist",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "document:ios/README.md",
+      "target": "file:ios/ExampleiOSApp/App.swift",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:ios/README.md",
+      "target": "config:ios/ExampleiOSApp/project.yml",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:java/ExampleONNX.java",
+      "target": "class:java/ExampleONNX.java:ExampleONNX",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/ExampleONNX.java",
+      "target": "function:java/ExampleONNX.java:parseArgs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/ExampleONNX.java",
+      "target": "function:java/ExampleONNX.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/ExampleONNX.java",
+      "target": "class:java/ExampleONNX.java:ExampleONNX",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:java/ExampleONNX.java",
+      "target": "function:java/ExampleONNX.java:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:java/ExampleONNX.java",
+      "target": "file:java/Helper.java",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "function:java/ExampleONNX.java:main",
+      "target": "function:java/Helper.java:loadTextToSpeech",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:java/ExampleONNX.java:main",
+      "target": "function:java/Helper.java:loadVoiceStyle",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:java/ExampleONNX.java:main",
+      "target": "function:java/Helper.java:chunkText",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:java/ExampleONNX.java:main",
+      "target": "function:java/Helper.java:writeWavFile",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:java/Helper.java",
+      "target": "class:java/Helper.java:Languages",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/Helper.java",
+      "target": "class:java/Helper.java:UnicodeProcessor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/Helper.java",
+      "target": "class:java/Helper.java:TextToSpeech",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/Helper.java",
+      "target": "class:java/Helper.java:Helper",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/Helper.java",
+      "target": "function:java/Helper.java:preprocessText",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/Helper.java",
+      "target": "function:java/Helper.java:_infer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/Helper.java",
+      "target": "function:java/Helper.java:sampleNoisyLatent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/Helper.java",
+      "target": "function:java/Helper.java:chunkText",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/Helper.java",
+      "target": "function:java/Helper.java:splitSentences",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/Helper.java",
+      "target": "function:java/Helper.java:loadVoiceStyle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/Helper.java",
+      "target": "function:java/Helper.java:loadTextToSpeech",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/Helper.java",
+      "target": "function:java/Helper.java:writeWavFile",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/Helper.java",
+      "target": "function:java/Helper.java:createFloatTensor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/Helper.java",
+      "target": "function:java/Helper.java:createLongTensor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/Helper.java",
+      "target": "class:java/Helper.java:UnicodeProcessor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:java/Helper.java",
+      "target": "class:java/Helper.java:TextToSpeech",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:java/Helper.java",
+      "target": "class:java/Helper.java:Helper",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:java/Helper.java",
+      "target": "function:java/Helper.java:loadVoiceStyle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:java/Helper.java",
+      "target": "function:java/Helper.java:loadTextToSpeech",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:java/Helper.java",
+      "target": "function:java/Helper.java:chunkText",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:java/Helper.java",
+      "target": "function:java/Helper.java:writeWavFile",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:java/Helper.java",
+      "target": "function:java/Helper.java:createFloatTensor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:java/Helper.java",
+      "target": "function:java/Helper.java:createLongTensor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "document:java/README.md",
+      "target": "file:java/ExampleONNX.java",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:java/README.md",
+      "target": "config:java/pom.xml",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:java/pom.xml",
+      "target": "file:java/ExampleONNX.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:nodejs/example_onnx.js",
+      "target": "function:nodejs/example_onnx.js:parseArgs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:nodejs/example_onnx.js",
+      "target": "function:nodejs/example_onnx.js:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:nodejs/example_onnx.js",
+      "target": "file:nodejs/helper.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "function:nodejs/example_onnx.js:main",
+      "target": "function:nodejs/helper.js:loadTextToSpeech",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:nodejs/example_onnx.js:main",
+      "target": "function:nodejs/helper.js:loadVoiceStyle",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:nodejs/example_onnx.js:main",
+      "target": "function:nodejs/helper.js:chunkText",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:nodejs/example_onnx.js:main",
+      "target": "function:nodejs/helper.js:writeWavFile",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:nodejs/helper.js",
+      "target": "class:nodejs/helper.js:UnicodeProcessor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:nodejs/helper.js",
+      "target": "class:nodejs/helper.js:TextToSpeech",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:nodejs/helper.js",
+      "target": "function:nodejs/helper.js:loadVoiceStyle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:nodejs/helper.js",
+      "target": "function:nodejs/helper.js:loadTextToSpeech",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:nodejs/helper.js",
+      "target": "function:nodejs/helper.js:writeWavFile",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:nodejs/helper.js",
+      "target": "function:nodejs/helper.js:chunkText",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:nodejs/helper.js",
+      "target": "function:nodejs/helper.js:loadVoiceStyle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:nodejs/helper.js",
+      "target": "function:nodejs/helper.js:loadTextToSpeech",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:nodejs/helper.js",
+      "target": "function:nodejs/helper.js:writeWavFile",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "document:nodejs/README.md",
+      "target": "file:nodejs/example_onnx.js",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:nodejs/README.md",
+      "target": "config:nodejs/package.json",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:nodejs/package.json",
+      "target": "file:nodejs/example_onnx.js",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:py/example_onnx.py",
+      "target": "function:py/example_onnx.py:parse_args",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:py/example_onnx.py",
+      "target": "function:py/example_onnx.py:parse_args",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:py/example_onnx.py",
+      "target": "file:py/helper.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:py/helper.py",
+      "target": "class:py/helper.py:UnicodeProcessor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:py/helper.py",
+      "target": "class:py/helper.py:TextToSpeech",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:py/helper.py",
+      "target": "function:py/helper.py:load_onnx_all",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:py/helper.py",
+      "target": "function:py/helper.py:load_text_to_speech",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:py/helper.py",
+      "target": "function:py/helper.py:load_voice_style",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:py/helper.py",
+      "target": "function:py/helper.py:chunk_text",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:py/helper.py",
+      "target": "class:py/helper.py:UnicodeProcessor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:py/helper.py",
+      "target": "class:py/helper.py:TextToSpeech",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:py/helper.py",
+      "target": "function:py/helper.py:load_onnx_all",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:py/helper.py",
+      "target": "function:py/helper.py:load_text_to_speech",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:py/helper.py",
+      "target": "function:py/helper.py:load_voice_style",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:py/example_onnx.py:parse_args",
+      "target": "function:py/helper.py:load_text_to_speech",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "document:py/README.md",
+      "target": "file:py/example_onnx.py",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:py/README.md",
+      "target": "file:py/example_pypi.py",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:py/README.md",
+      "target": "config:py/pyproject.toml",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:py/pyproject.toml",
+      "target": "file:py/example_onnx.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:py/requirements.txt",
+      "target": "file:py/example_onnx.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:py/requirements.txt",
+      "target": "file:py/helper.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:rust/Cargo.toml",
+      "target": "file:rust/src/example_onnx.rs",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:rust/Cargo.toml",
+      "target": "file:rust/src/helper.rs",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "document:rust/README.md",
+      "target": "file:rust/src/example_onnx.rs",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:rust/README.md",
+      "target": "file:rust/src/helper.rs",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:rust/src/example_onnx.rs",
+      "target": "function:rust/src/example_onnx.rs:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:rust/src/example_onnx.rs",
+      "target": "class:rust/src/example_onnx.rs:Args",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:rust/src/example_onnx.rs",
+      "target": "file:rust/src/helper.rs",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:rust/src/helper.rs",
+      "target": "class:rust/src/helper.rs:Config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:rust/src/helper.rs",
+      "target": "class:rust/src/helper.rs:AEConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:rust/src/helper.rs",
+      "target": "class:rust/src/helper.rs:TTLConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:rust/src/helper.rs",
+      "target": "class:rust/src/helper.rs:UnicodeProcessor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:rust/src/helper.rs",
+      "target": "class:rust/src/helper.rs:TextToSpeech",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:rust/src/helper.rs",
+      "target": "function:rust/src/helper.rs:load_text_to_speech",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:rust/src/helper.rs",
+      "target": "function:rust/src/helper.rs:load_voice_style",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:rust/src/helper.rs",
+      "target": "function:rust/src/helper.rs:chunk_text",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:rust/src/helper.rs",
+      "target": "function:rust/src/helper.rs:preprocess_text",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:rust/src/helper.rs",
+      "target": "function:rust/src/helper.rs:write_wav_file",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:rust/src/helper.rs",
+      "target": "function:rust/src/helper.rs:sample_noisy_latent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:rust/src/helper.rs",
+      "target": "function:rust/src/helper.rs:split_sentences",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:rust/src/helper.rs",
+      "target": "function:rust/src/helper.rs:TextToSpeech._infer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:rust/src/helper.rs",
+      "target": "function:rust/src/helper.rs:TextToSpeech.call",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:rust/src/helper.rs",
+      "target": "function:rust/src/helper.rs:TextToSpeech.batch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:rust/src/helper.rs",
+      "target": "class:rust/src/helper.rs:Config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:rust/src/helper.rs",
+      "target": "class:rust/src/helper.rs:AEConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:rust/src/helper.rs",
+      "target": "class:rust/src/helper.rs:TTLConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:rust/src/helper.rs",
+      "target": "class:rust/src/helper.rs:UnicodeProcessor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:rust/src/helper.rs",
+      "target": "class:rust/src/helper.rs:TextToSpeech",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:rust/src/helper.rs",
+      "target": "function:rust/src/helper.rs:load_text_to_speech",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:rust/src/helper.rs",
+      "target": "function:rust/src/helper.rs:load_voice_style",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:rust/src/helper.rs",
+      "target": "function:rust/src/helper.rs:chunk_text",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:rust/src/helper.rs",
+      "target": "function:rust/src/helper.rs:preprocess_text",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:rust/src/helper.rs",
+      "target": "function:rust/src/helper.rs:write_wav_file",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:rust/src/helper.rs",
+      "target": "function:rust/src/helper.rs:sample_noisy_latent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:rust/src/example_onnx.rs:main",
+      "target": "function:rust/src/helper.rs:load_text_to_speech",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:rust/src/example_onnx.rs:main",
+      "target": "function:rust/src/helper.rs:load_voice_style",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:rust/src/example_onnx.rs:main",
+      "target": "function:rust/src/helper.rs:write_wav_file",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "config:swift/Package.swift",
+      "target": "file:swift/Sources/ExampleONNX.swift",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:swift/Package.swift",
+      "target": "file:swift/Sources/Helper.swift",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:swift/Package.resolved",
+      "target": "config:swift/Package.swift",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "document:swift/README.md",
+      "target": "file:swift/Sources/ExampleONNX.swift",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:swift/README.md",
+      "target": "file:swift/Sources/Helper.swift",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:swift/Sources/ExampleONNX.swift",
+      "target": "file:swift/Sources/Helper.swift",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "document:web/README.md",
+      "target": "file:web/index.html",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:web/README.md",
+      "target": "file:web/main.js",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:web/README.md",
+      "target": "file:web/helper.js",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:web/package.json",
+      "target": "file:web/main.js",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:web/package.json",
+      "target": "file:web/helper.js",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:web/package.json",
+      "target": "file:web/vite.config.js",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:web/vite.config.js",
+      "target": "file:web/main.js",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:web/index.html",
+      "target": "file:web/main.js",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:web/index.html",
+      "target": "file:web/style.css",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:web/main.js",
+      "target": "file:web/helper.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:web/helper.js",
+      "target": "class:web/helper.js:UnicodeProcessor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:web/helper.js",
+      "target": "class:web/helper.js:Style",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:web/helper.js",
+      "target": "class:web/helper.js:TextToSpeech",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:web/helper.js",
+      "target": "function:web/helper.js:loadTextToSpeech",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:web/helper.js",
+      "target": "function:web/helper.js:loadVoiceStyle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:web/helper.js",
+      "target": "function:web/helper.js:chunkText",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:web/helper.js",
+      "target": "function:web/helper.js:writeWavFile",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:web/helper.js",
+      "target": "class:web/helper.js:UnicodeProcessor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:web/helper.js",
+      "target": "class:web/helper.js:Style",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:web/helper.js",
+      "target": "class:web/helper.js:TextToSpeech",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:web/helper.js",
+      "target": "function:web/helper.js:loadTextToSpeech",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:web/helper.js",
+      "target": "function:web/helper.js:loadVoiceStyle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:web/helper.js",
+      "target": "function:web/helper.js:writeWavFile",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:web/main.js",
+      "target": "function:web/main.js:initializeModels",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:web/main.js",
+      "target": "function:web/main.js:generateSpeech",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:web/main.js",
+      "target": "function:web/main.js:loadStyleFromJSON",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:web/vite.config.js",
+      "target": "function:web/vite.config.js:serveRootAssets",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "function:web/main.js:initializeModels",
+      "target": "function:web/helper.js:loadTextToSpeech",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:web/main.js:initializeModels",
+      "target": "function:web/helper.js:loadVoiceStyle",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:web/main.js:generateSpeech",
+      "target": "function:web/helper.js:writeWavFile",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:web/main.js:generateSpeech",
+      "target": "class:web/helper.js:TextToSpeech",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ],
+  "layers": [
+    {
+      "id": "layer:root",
+      "name": "Repository Root & Cross-Cutting",
+      "description": "Top-level project README, git attributes, and the multi-language test harness (test_all.sh) that drives every per-language example end-to-end.",
+      "nodeIds": [
+        "config:.gitattributes",
+        "document:README.md",
+        "file:test_all.sh"
+      ]
+    },
+    {
+      "id": "layer:cpp-sdk",
+      "name": "C++ SDK Example",
+      "description": "C++ Supertonic example using ONNX Runtime, built via CMake with a helper.cpp/.h pipeline and example_onnx.cpp entry-point binary.",
+      "nodeIds": [
+        "config:cpp/CMakeLists.txt",
+        "document:cpp/README.md",
+        "file:cpp/example_onnx.cpp",
+        "file:cpp/helper.cpp",
+        "file:cpp/helper.h"
+      ]
+    },
+    {
+      "id": "layer:jvm-dotnet-sdk",
+      "name": "JVM & .NET SDK Examples (Java, C#)",
+      "description": "Enterprise-runtime Supertonic examples for Java (Maven/pom.xml) and C# (.csproj), each providing a Helper class plus an ExampleONNX entry point that exercises ONNX Runtime.",
+      "nodeIds": [
+        "file:csharp/ExampleONNX.cs",
+        "file:csharp/Helper.cs",
+        "document:csharp/README.md",
+        "config:csharp/Supertonic.csproj",
+        "file:java/ExampleONNX.java",
+        "file:java/Helper.java",
+        "document:java/README.md",
+        "config:java/pom.xml"
+      ]
+    },
+    {
+      "id": "layer:systems-sdk",
+      "name": "Systems-Language SDK Examples (Go, Rust)",
+      "description": "Modern compiled-systems Supertonic examples \u2014 Go (go.mod-based package main with helper.go and example_onnx.go) and Rust (Cargo binary crate with src/helper.rs and src/example_onnx.rs) \u2014 driving ONNX Runtime end-to-end.",
+      "nodeIds": [
+        "document:go/README.md",
+        "file:go/example_onnx.go",
+        "config:go/go.mod",
+        "config:go/go.sum",
+        "file:go/helper.go",
+        "config:rust/Cargo.toml",
+        "document:rust/README.md",
+        "file:rust/src/example_onnx.rs",
+        "file:rust/src/helper.rs"
+      ]
+    },
+    {
+      "id": "layer:flutter-sdk",
+      "name": "Flutter SDK Example",
+      "description": "Flutter (Dart) Supertonic example with the cross-platform lib/ pipeline (helper.dart, main.dart) plus the macOS Runner Xcode scaffolding, entitlements, build configs, and pubspec/analysis manifests.",
+      "nodeIds": [
+        "config:flutter/.metadata",
+        "document:flutter/README.md",
+        "config:flutter/analysis_options.yaml",
+        "file:flutter/lib/helper.dart",
+        "file:flutter/lib/main.dart",
+        "config:flutter/macos/Flutter/Flutter-Debug.xcconfig",
+        "config:flutter/macos/Flutter/Flutter-Release.xcconfig",
+        "file:flutter/macos/Flutter/GeneratedPluginRegistrant.swift",
+        "config:flutter/macos/Podfile",
+        "file:flutter/macos/Runner/AppDelegate.swift",
+        "config:flutter/macos/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json",
+        "config:flutter/macos/Runner/Base.lproj/MainMenu.xib",
+        "config:flutter/macos/Runner/Configs/AppInfo.xcconfig",
+        "config:flutter/macos/Runner/Configs/Debug.xcconfig",
+        "config:flutter/macos/Runner/Configs/Release.xcconfig",
+        "config:flutter/macos/Runner/Configs/Warnings.xcconfig",
+        "config:flutter/macos/Runner/DebugProfile.entitlements",
+        "config:flutter/macos/Runner/Info.plist",
+        "file:flutter/macos/Runner/MainFlutterWindow.swift",
+        "config:flutter/macos/Runner/Release.entitlements",
+        "file:flutter/macos/RunnerTests/RunnerTests.swift",
+        "config:flutter/pubspec.yaml"
+      ]
+    },
+    {
+      "id": "layer:ios-sdk",
+      "name": "iOS App Example",
+      "description": "SwiftUI iOS application demonstrating Supertonic TTS with an App/ContentView UI, TTSService/TTSViewModel binding, AudioPlayer playback, Info.plist, and an XcodeGen project.yml.",
+      "nodeIds": [
+        "file:ios/ExampleiOSApp/App.swift",
+        "file:ios/ExampleiOSApp/AudioPlayer.swift",
+        "file:ios/ExampleiOSApp/ContentView.swift",
+        "config:ios/ExampleiOSApp/Info.plist",
+        "file:ios/ExampleiOSApp/TTSService.swift",
+        "file:ios/ExampleiOSApp/TTSViewModel.swift",
+        "config:ios/ExampleiOSApp/project.yml",
+        "document:ios/README.md"
+      ]
+    },
+    {
+      "id": "layer:swift-sdk",
+      "name": "Swift CLI SDK Example",
+      "description": "Swift Package Manager command-line Supertonic example (Package.swift + Sources/Helper.swift + Sources/ExampleONNX.swift), distinct from the SwiftUI iOS app.",
+      "nodeIds": [
+        "config:swift/Package.resolved",
+        "config:swift/Package.swift",
+        "document:swift/README.md",
+        "file:swift/Sources/ExampleONNX.swift",
+        "file:swift/Sources/Helper.swift"
+      ]
+    },
+    {
+      "id": "layer:nodejs-sdk",
+      "name": "Node.js SDK Example",
+      "description": "Node.js Supertonic example using onnxruntime-node, with a CommonJS helper.js pipeline and example_onnx.js entry script backed by package.json.",
+      "nodeIds": [
+        "document:nodejs/README.md",
+        "file:nodejs/example_onnx.js",
+        "file:nodejs/helper.js",
+        "config:nodejs/package.json"
+      ]
+    },
+    {
+      "id": "layer:python-sdk",
+      "name": "Python SDK Example",
+      "description": "Python Supertonic example with helper.py inference pipeline plus example_onnx.py and example_pypi.py entry points, packaged via pyproject.toml and requirements.txt.",
+      "nodeIds": [
+        "document:py/README.md",
+        "file:py/example_onnx.py",
+        "file:py/example_pypi.py",
+        "file:py/helper.py",
+        "config:py/pyproject.toml",
+        "config:py/requirements.txt"
+      ]
+    },
+    {
+      "id": "layer:web-sdk",
+      "name": "Web SDK Example",
+      "description": "Browser-based Supertonic example using onnxruntime-web with a Vite build (vite.config.js), helper.js inference module, main.js entry, index.html, and style.css.",
+      "nodeIds": [
+        "document:web/README.md",
+        "file:web/helper.js",
+        "file:web/index.html",
+        "file:web/main.js",
+        "config:web/package.json",
+        "file:web/style.css",
+        "file:web/vite.config.js"
+      ]
+    }
+  ],
+  "tour": [
+    {
+      "order": 1,
+      "title": "Project Overview",
+      "description": "Start with the top-level README to understand what Supertonic is: a lightning-fast, on-device, 99M-parameter multilingual TTS model that runs entirely via ONNX Runtime \u2014 no cloud, no API calls. The README frames the rest of the repo: the Python SDK (pip install supertonic) is the canonical reference, and every other folder is a hand-written ONNX Runtime example showing how to reconstruct the same synthesis pipeline in another language. Skim the quick-start examples to see how identical the API looks across Python, Node.js, Browser, Java, C++, C#, Go, Swift, iOS, Rust, and Flutter.",
+      "nodeIds": [
+        "document:README.md"
+      ]
+    },
+    {
+      "order": 2,
+      "title": "Python: The Canonical Pipeline (helper.py)",
+      "description": "Open the Python helper module \u2014 this is the reference implementation that every other language port mirrors. It defines the three core building blocks: UnicodeProcessor (NFKD text normalization + per-language tagging), Style (loads voice-style JSONs that condition the model), and TextToSpeech (loads four ONNX sessions \u2014 duration predictor, text encoder, vector estimator, vocoder \u2014 and orchestrates the iterative diffusion-style inference loop that turns text into 44.1 kHz audio). Read this once and you will recognize the same four-stage pipeline in cpp/helper.cpp, rust/helper.rs, swift/Helper.swift, and every other port.",
+      "nodeIds": [
+        "file:py/helper.py"
+      ],
+      "languageLesson": "Python's ONNX Runtime bindings (`onnxruntime.InferenceSession`) accept NumPy arrays as inputs and return them as outputs \u2014 the entire data plane is contiguous float32/int64 arrays. Voice styles ship as JSON blobs of style vectors, which keeps the conditioning data human-inspectable and decoupled from the model weights."
+    },
+    {
+      "order": 3,
+      "title": "Python: CLI Entry Point and PyPI Package",
+      "description": "Now see how the pipeline is consumed. example_onnx.py is the from-source demo \u2014 it parses CLI flags, instantiates TextToSpeech from helper.py, chunks the input text into sentences, runs synthesis, and writes a WAV via soundfile. example_pypi.py shows the alternative: `from supertonic import TTS`, the published package that wraps everything in a one-liner. These two files demonstrate the two ways developers will actually use Supertonic \u2014 and every other language folder in the repo follows the same `helper + example_onnx` split.",
+      "nodeIds": [
+        "file:py/example_onnx.py",
+        "file:py/example_pypi.py",
+        "document:py/README.md"
+      ]
+    },
+    {
+      "order": 4,
+      "title": "Python: Packaging and Dependencies",
+      "description": "Look at the Python build manifests to see the minimal dependency surface: onnxruntime, numpy, and soundfile do all the heavy lifting; no PyTorch, no TensorFlow, no cloud SDK. pyproject.toml declares the project metadata and build backend, while requirements.txt pins the runtime dependencies that helper.py actually imports. This minimal footprint \u2014 model + runtime + math + audio I/O \u2014 is the recipe every other language port reproduces with its native equivalents.",
+      "nodeIds": [
+        "config:py/pyproject.toml",
+        "config:py/requirements.txt"
+      ]
+    },
+    {
+      "order": 5,
+      "title": "Node.js and Browser: JavaScript Ports",
+      "description": "The two JavaScript targets reuse the same helper/example split with onnxruntime-node (server) and onnxruntime-web (browser, with optional WebGPU acceleration). nodejs/helper.js is a near line-for-line CommonJS port of py/helper.py \u2014 UnicodeProcessor, Style, TextToSpeech \u2014 driven by example_onnx.js as a CLI script. web/helper.js does the same but runs in a browser; web/main.js wires the pipeline to DOM controls for an interactive demo. Notice how both reuse the canonical four-ONNX-session architecture.",
+      "nodeIds": [
+        "file:nodejs/helper.js",
+        "file:nodejs/example_onnx.js",
+        "file:web/helper.js",
+        "file:web/main.js"
+      ],
+      "languageLesson": "onnxruntime-web ships two backends: WASM (universal, CPU) and WebGPU (modern browsers, GPU-accelerated). Vite's `optimizeDeps.exclude` and `assetsInclude` are used in web/vite.config.js to surface the .wasm and .jsep.wasm worker assets at runtime."
+    },
+    {
+      "order": 6,
+      "title": "C++: Systems Reference Implementation",
+      "description": "The C++ example is the systems-language reference. helper.h declares the public surface \u2014 Config, UnicodeProcessor, Style, TextToSpeech, OnnxModels \u2014 and helper.cpp provides the same four-stage pipeline as py/helper.py but using the C++ ONNX Runtime C++ API. example_onnx.cpp is the thin CLI driver. CMakeLists.txt links everything against ONNX Runtime as a shared library and produces a single example_onnx binary. This is what \"on-device, zero-overhead inference\" looks like at the metal.",
+      "nodeIds": [
+        "file:cpp/helper.h",
+        "file:cpp/helper.cpp",
+        "file:cpp/example_onnx.cpp",
+        "config:cpp/CMakeLists.txt"
+      ],
+      "languageLesson": "ONNX Runtime's C++ API wraps inputs as `Ort::Value` tensors with explicit shape/dtype and uses `Ort::Session::Run` for inference. Linking against the prebuilt onnxruntime shared library keeps the example portable across Linux/macOS without requiring a custom build."
+    },
+    {
+      "order": 7,
+      "title": "Go and Rust: Modern Systems Ports",
+      "description": "Go and Rust both reach ONNX Runtime through community wrappers \u2014 Go uses cgo bindings against the same native libonnxruntime, while Rust uses the `ort` crate. Both ports replicate the canonical pipeline: helper.go / helper.rs implement Config, text preprocessing, voice-style loading, and the multi-session inference loop; example_onnx.go / example_onnx.rs handle CLI parsing (flag in Go, clap in Rust) and WAV writing (hound in Rust). Reading these side-by-side highlights how the same algorithm projects cleanly into each language's idioms.",
+      "nodeIds": [
+        "file:go/helper.go",
+        "file:go/example_onnx.go",
+        "file:rust/src/helper.rs",
+        "file:rust/src/example_onnx.rs"
+      ],
+      "languageLesson": "Rust's `ndarray` crate provides NumPy-equivalent N-dimensional arrays with strict ownership semantics \u2014 perfect for ONNX tensors. The `ort` crate accepts `&Array` slices as inputs and returns owned arrays, so the borrow checker enforces tensor lifetimes at compile time."
+    },
+    {
+      "order": 8,
+      "title": "Java and C#: Enterprise Runtime Ports",
+      "description": "Java and C# bring Supertonic into JVM and .NET environments. Helper.java and Helper.cs each replicate the canonical pipeline using Microsoft's official ONNX Runtime bindings (com.microsoft.onnxruntime / Microsoft.ML.OnnxRuntime \u2014 both maintained by the same team). The ExampleONNX entry points expose the same CLI flag surface as their Python sibling. pom.xml (Maven) and Supertonic.csproj (.NET SDK-style) declare the ONNX Runtime dependencies and the main-class wiring needed to invoke the demos.",
+      "nodeIds": [
+        "file:java/Helper.java",
+        "file:java/ExampleONNX.java",
+        "file:csharp/Helper.cs",
+        "file:csharp/ExampleONNX.cs"
+      ],
+      "languageLesson": "Both Microsoft.ML.OnnxRuntime (NuGet) and com.microsoft.onnxruntime (Maven Central) wrap the same native runtime as the C++ example. Tensors are constructed from primitive arrays plus shape metadata \u2014 Java uses OnnxTensor.createTensor, .NET uses OrtValue.CreateTensorValueFromMemory."
+    },
+    {
+      "order": 9,
+      "title": "Swift CLI: SwiftPM Port",
+      "description": "The Swift folder is the command-line port \u2014 a Swift Package Manager executable that runs on macOS and Linux. Package.swift declares a single ExampleONNX target depending on onnxruntime-swift-package-manager. Helper.swift is the canonical pipeline in Swift idioms (structs for Config, the Unicode preprocessor, the chunker, and the TextToSpeech driver coordinating four ONNX sessions); Sources/ExampleONNX.swift is the CLI driver. This is distinct from the SwiftUI iOS app you will see next \u2014 same language, different deployment target.",
+      "nodeIds": [
+        "file:swift/Sources/Helper.swift",
+        "file:swift/Sources/ExampleONNX.swift",
+        "config:swift/Package.swift",
+        "document:swift/README.md"
+      ]
+    },
+    {
+      "order": 10,
+      "title": "iOS App: SwiftUI Mobile Demo",
+      "description": "The iOS example demonstrates the same pipeline embedded in a real mobile app. App.swift is the SwiftUI @main entry; ContentView.swift renders the demo UI (text input, language picker, NFE slider, play button); TTSViewModel.swift is a MainActor ObservableObject binding @Published state to the view; TTSService.swift is the async wrapper that loads the bundled ONNX models and exposes synthesize(). Unlike the Swift CLI, here the ONNX assets are bundled into the .app via project.yml (XcodeGen) so the model ships inside the binary \u2014 true on-device inference with zero network calls.",
+      "nodeIds": [
+        "file:ios/ExampleiOSApp/App.swift",
+        "file:ios/ExampleiOSApp/ContentView.swift",
+        "file:ios/ExampleiOSApp/TTSViewModel.swift",
+        "file:ios/ExampleiOSApp/TTSService.swift"
+      ],
+      "languageLesson": "SwiftUI's @MainActor + @Published pattern keeps UI updates thread-safe while heavy ONNX inference runs off-main via `async`. The XcodeGen project.yml replaces a hand-edited .xcodeproj with a declarative spec, making the iOS demo reproducible without committing Xcode's binary project files."
+    },
+    {
+      "order": 11,
+      "title": "Flutter: Cross-Platform Mobile Port",
+      "description": "The Flutter example is the multi-platform Dart port. lib/helper.dart re-implements the canonical four-stage TTS pipeline using flutter_onnxruntime, including the NFKD text decomposition and the iterative denoising loop. lib/main.dart bootstraps a Material UI with controls for text, denoising steps, speed, and language, then plays the synthesized audio through just_audio. pubspec.yaml declares dependencies and crucially bundles the ONNX models and voice_styles JSONs as Flutter assets \u2014 the same on-device-inference story as iOS, but cross-platform.",
+      "nodeIds": [
+        "file:flutter/lib/helper.dart",
+        "file:flutter/lib/main.dart",
+        "config:flutter/pubspec.yaml",
+        "document:flutter/README.md"
+      ]
+    },
+    {
+      "order": 12,
+      "title": "Cross-Language Test Harness",
+      "description": "Finally, see how all 11 language targets are exercised together. test_all.sh is the top-level harness that walks each language folder, builds the example (cmake/cargo/maven/npm/pip/etc.), runs example_onnx with a canonical prompt, captures timings, and aggregates pass/fail statistics. This is the closest thing the repo has to CI: it proves that every language port really does produce equivalent WAV output from the same input text. It is also the best place to look when you need a working build/run incantation for any language target.",
+      "nodeIds": [
+        "file:test_all.sh"
+      ],
+      "languageLesson": "A POSIX shell harness like test_all.sh keeps multi-language CI portable without depending on GitHub Actions YAML or any platform-specific orchestrator \u2014 anyone with bash and the per-language toolchains installed can reproduce the full test matrix locally."
+    }
+  ]
+}

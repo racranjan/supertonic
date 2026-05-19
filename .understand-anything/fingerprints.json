@@ -1,0 +1,1244 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2026-05-18T23:37:52.789Z",
+  "files": {
+    ".gitattributes": {
+      "filePath": ".gitattributes",
+      "contentHash": "5a213d0d1c96e4c0ef0bc36bd171c73ae1bea58eee46b5d2122576f991e46bc4",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 4,
+      "hasStructuralAnalysis": false
+    },
+    "README.md": {
+      "filePath": "README.md",
+      "contentHash": "2cc8219b7c0ad3f4a3de5a1cab29d851824b219f728950866d0dba95107de41c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 511,
+      "hasStructuralAnalysis": true
+    },
+    "cpp/CMakeLists.txt": {
+      "filePath": "cpp/CMakeLists.txt",
+      "contentHash": "e57362b3265a56891219fe19af4f674a3ee58cf8c8df36b8753ff77a97753b1b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 123,
+      "hasStructuralAnalysis": false
+    },
+    "cpp/README.md": {
+      "filePath": "cpp/README.md",
+      "contentHash": "0d433641d7b7045aa1e269ce5fcdb0543429623feaca45d6a079644491756907",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 142,
+      "hasStructuralAnalysis": true
+    },
+    "cpp/example_onnx.cpp": {
+      "filePath": "cpp/example_onnx.cpp",
+      "contentHash": "bda24d1665c5edf27a2b1bc8291fbf69a3e8b0f9fef94338262bad11d8ae6d74",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 122,
+      "hasStructuralAnalysis": false
+    },
+    "cpp/helper.cpp": {
+      "filePath": "cpp/helper.cpp",
+      "contentHash": "75888924927841bd9c736546e1f44f7edcac42b5418f3d2b2145f4b1ed599ea4",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1187,
+      "hasStructuralAnalysis": false
+    },
+    "cpp/helper.h": {
+      "filePath": "cpp/helper.h",
+      "contentHash": "8549e188a318da912fe274690ce54a5035df31794aa018849a2a63ebddbcfe78",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 230,
+      "hasStructuralAnalysis": false
+    },
+    "csharp/ExampleONNX.cs": {
+      "filePath": "csharp/ExampleONNX.cs",
+      "contentHash": "c076cf54b7888b496d1ec667092031ac5978ebe02985445433e4bcadeddcdfc4",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 141,
+      "hasStructuralAnalysis": false
+    },
+    "csharp/Helper.cs": {
+      "filePath": "csharp/Helper.cs",
+      "contentHash": "4fd97a8ac13e51e9de5498ae90599d134d0499da7247dfa3e23b3bea1c4b7db3",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 862,
+      "hasStructuralAnalysis": false
+    },
+    "csharp/README.md": {
+      "filePath": "csharp/README.md",
+      "contentHash": "326df8b416270954edc0618360e24cd78dd74e43a58b19c17bcc27313478e927",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 139,
+      "hasStructuralAnalysis": true
+    },
+    "csharp/Supertonic.csproj": {
+      "filePath": "csharp/Supertonic.csproj",
+      "contentHash": "d38747e4b429062660953f20cc81351ff1711ce1db78fcc388240c8d82b1a59f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 18,
+      "hasStructuralAnalysis": false
+    },
+    "flutter/.metadata": {
+      "filePath": "flutter/.metadata",
+      "contentHash": "5c20f1b82806bcda0aca0a16034860e76babef836113e6ab117eb2ea7728984a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 31,
+      "hasStructuralAnalysis": false
+    },
+    "flutter/README.md": {
+      "filePath": "flutter/README.md",
+      "contentHash": "5f08c7e04a46f0aa7dc4c6d5e96c68daf28f999b57b5ec04c6863e0fbafc30f8",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 33,
+      "hasStructuralAnalysis": true
+    },
+    "flutter/analysis_options.yaml": {
+      "filePath": "flutter/analysis_options.yaml",
+      "contentHash": "e0ea485cfdbc3e12b93efb8679a5ea73ebfe20ea4ca0c473dc594fc2fb274ed5",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 29,
+      "hasStructuralAnalysis": true
+    },
+    "flutter/lib/helper.dart": {
+      "filePath": "flutter/lib/helper.dart",
+      "contentHash": "7887845aea24fc847df8e10c6b1015051aac95cc96f1c9819ca730c3b1263a71",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 696,
+      "hasStructuralAnalysis": false
+    },
+    "flutter/lib/main.dart": {
+      "filePath": "flutter/lib/main.dart",
+      "contentHash": "7b6864446ad301a279bb80acaaf1b5f23c371b9d7635a8e4c1661fafef4be3fb",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 389,
+      "hasStructuralAnalysis": false
+    },
+    "flutter/macos/Flutter/Flutter-Debug.xcconfig": {
+      "filePath": "flutter/macos/Flutter/Flutter-Debug.xcconfig",
+      "contentHash": "802714a37a8fd3065fb3d8e21cbcfbb3147c7ad25f25934b64590085aa9f5b28",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 3,
+      "hasStructuralAnalysis": false
+    },
+    "flutter/macos/Flutter/Flutter-Release.xcconfig": {
+      "filePath": "flutter/macos/Flutter/Flutter-Release.xcconfig",
+      "contentHash": "d575f436f8bab30d7096792396e73b65db242edc01913c4123d2c29e713b3a6d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 3,
+      "hasStructuralAnalysis": false
+    },
+    "flutter/macos/Flutter/GeneratedPluginRegistrant.swift": {
+      "filePath": "flutter/macos/Flutter/GeneratedPluginRegistrant.swift",
+      "contentHash": "258789b4711af6c9da58948fe5b7682ca71ddec28c19d58174dd46c53be99375",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 17,
+      "hasStructuralAnalysis": false
+    },
+    "flutter/macos/Podfile": {
+      "filePath": "flutter/macos/Podfile",
+      "contentHash": "d39dec3439023d37d9a2bd5522cfd9a8db80aeeebf21350a07002b20426427fc",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 46,
+      "hasStructuralAnalysis": false
+    },
+    "flutter/macos/Runner/AppDelegate.swift": {
+      "filePath": "flutter/macos/Runner/AppDelegate.swift",
+      "contentHash": "ce9dbe45a57c59e85519da50a26c471615b9c8cdd85a8f4a39d2e480e62a4af4",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 14,
+      "hasStructuralAnalysis": false
+    },
+    "flutter/macos/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json": {
+      "filePath": "flutter/macos/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json",
+      "contentHash": "bc6ba8105ca69651aeeb77358851590de295dca04681a1d58c0f449641c242f3",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 69,
+      "hasStructuralAnalysis": true
+    },
+    "flutter/macos/Runner/Base.lproj/MainMenu.xib": {
+      "filePath": "flutter/macos/Runner/Base.lproj/MainMenu.xib",
+      "contentHash": "be9e9ef8469d3262370e0f0b855ed163cbf9c8362c59e330b2ffe63b86fa42f4",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 344,
+      "hasStructuralAnalysis": false
+    },
+    "flutter/macos/Runner/Configs/AppInfo.xcconfig": {
+      "filePath": "flutter/macos/Runner/Configs/AppInfo.xcconfig",
+      "contentHash": "d677864b5624884041b5107fdf8202f7f4ca807c14b9f5e28b031b6157063b16",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 15,
+      "hasStructuralAnalysis": false
+    },
+    "flutter/macos/Runner/Configs/Debug.xcconfig": {
+      "filePath": "flutter/macos/Runner/Configs/Debug.xcconfig",
+      "contentHash": "8067d533ef6593760baad9a9855a786a7a77470fcc3f0925ec04fe43bc1ac4b0",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 3,
+      "hasStructuralAnalysis": false
+    },
+    "flutter/macos/Runner/Configs/Release.xcconfig": {
+      "filePath": "flutter/macos/Runner/Configs/Release.xcconfig",
+      "contentHash": "7a6a4b4d973a23052fa0a0388dd261e32d311d7b66ba1bfc3b914b361808ac61",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 3,
+      "hasStructuralAnalysis": false
+    },
+    "flutter/macos/Runner/Configs/Warnings.xcconfig": {
+      "filePath": "flutter/macos/Runner/Configs/Warnings.xcconfig",
+      "contentHash": "0e341a392b16ad302d12890aa3dac9257a6c10ece685437604259a85341645a3",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 14,
+      "hasStructuralAnalysis": false
+    },
+    "flutter/macos/Runner/DebugProfile.entitlements": {
+      "filePath": "flutter/macos/Runner/DebugProfile.entitlements",
+      "contentHash": "ebaab2b9992173de422c33e1fbab7f6e31acaa2213956097ac8cefd894a91ac8",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 13,
+      "hasStructuralAnalysis": false
+    },
+    "flutter/macos/Runner/Info.plist": {
+      "filePath": "flutter/macos/Runner/Info.plist",
+      "contentHash": "f253e89c512b3a9a81bc5cdd7a14bf932470f835f261654a808ea4549cd94aad",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 33,
+      "hasStructuralAnalysis": false
+    },
+    "flutter/macos/Runner/MainFlutterWindow.swift": {
+      "filePath": "flutter/macos/Runner/MainFlutterWindow.swift",
+      "contentHash": "65c9613c11bcedfa51416b16c975d8ba6ff12b405fc19d60db8755d92e86d9fe",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 16,
+      "hasStructuralAnalysis": false
+    },
+    "flutter/macos/Runner/Release.entitlements": {
+      "filePath": "flutter/macos/Runner/Release.entitlements",
+      "contentHash": "b746c74b201e6af4e0864fbd1f4f629f96156a7ec4b7208bc995d0a5089bb592",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 9,
+      "hasStructuralAnalysis": false
+    },
+    "flutter/macos/RunnerTests/RunnerTests.swift": {
+      "filePath": "flutter/macos/RunnerTests/RunnerTests.swift",
+      "contentHash": "6bc180bc77c7def7a21d197233e25dff42cc493ab9d294632edafc18fdf0ac44",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 13,
+      "hasStructuralAnalysis": false
+    },
+    "flutter/pubspec.yaml": {
+      "filePath": "flutter/pubspec.yaml",
+      "contentHash": "4412ee0ee0da2e103c66639d2173e47f17964c65f832b2a2b56b7b3d571b08ae",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 26,
+      "hasStructuralAnalysis": true
+    },
+    "go/README.md": {
+      "filePath": "go/README.md",
+      "contentHash": "cc779fd1838bd0b74d8a233f3d7cafb7cee2a80537d88c7d499434976c7272d3",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 167,
+      "hasStructuralAnalysis": true
+    },
+    "go/example_onnx.go": {
+      "filePath": "go/example_onnx.go",
+      "contentHash": "81d2436675f22b856bc3b28db87d65e1f786f3c5fae5201138cef7841438c9bd",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 194,
+      "hasStructuralAnalysis": false
+    },
+    "go/go.mod": {
+      "filePath": "go/go.mod",
+      "contentHash": "7777d98f8b182caf0d2f8b60b59dda25da4ab6976f80995f41b9d4593a90aa5a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 14,
+      "hasStructuralAnalysis": false
+    },
+    "go/go.sum": {
+      "filePath": "go/go.sum",
+      "contentHash": "6bf8810cbacde9e3905720b4cac95c51daf1dc601b70d7e8138c6730910911f4",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 13,
+      "hasStructuralAnalysis": false
+    },
+    "go/helper.go": {
+      "filePath": "go/helper.go",
+      "contentHash": "7a1b6454c7bc7504eb14f97b8d45a7beef4a4465ceb17fc670526cdfcd19c3c0",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1078,
+      "hasStructuralAnalysis": false
+    },
+    "ios/ExampleiOSApp/App.swift": {
+      "filePath": "ios/ExampleiOSApp/App.swift",
+      "contentHash": "13a29a62272ae5b78e442f77113beea74b5731c56c7508863f79e8399fb90e42",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 11,
+      "hasStructuralAnalysis": false
+    },
+    "ios/ExampleiOSApp/AudioPlayer.swift": {
+      "filePath": "ios/ExampleiOSApp/AudioPlayer.swift",
+      "contentHash": "d57b922b0853e07a58d2d622149bbce77d023fda24d87f80261364d6cb925dca",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 31,
+      "hasStructuralAnalysis": false
+    },
+    "ios/ExampleiOSApp/ContentView.swift": {
+      "filePath": "ios/ExampleiOSApp/ContentView.swift",
+      "contentHash": "cb337fb56e3d3e794aa8194967f1f013e7f60a345b948249d7c744c09aa570a3",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 100,
+      "hasStructuralAnalysis": false
+    },
+    "ios/ExampleiOSApp/Info.plist": {
+      "filePath": "ios/ExampleiOSApp/Info.plist",
+      "contentHash": "7585df4164c9a36ceb1ae300dc4ad629032a7fa941902432e46f903b39d5bfbe",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 30,
+      "hasStructuralAnalysis": false
+    },
+    "ios/ExampleiOSApp/TTSService.swift": {
+      "filePath": "ios/ExampleiOSApp/TTSService.swift",
+      "contentHash": "d53d558ccc62ce8733ead10204d3de5325aaed0bd5192234e33b4944bb4ef4a3",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 169,
+      "hasStructuralAnalysis": false
+    },
+    "ios/ExampleiOSApp/TTSViewModel.swift": {
+      "filePath": "ios/ExampleiOSApp/TTSViewModel.swift",
+      "contentHash": "5f9780167c2f748a702af6f3bcc895c0fa00316fc9070a3ddd424b2b25484cc9",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 83,
+      "hasStructuralAnalysis": false
+    },
+    "ios/ExampleiOSApp/project.yml": {
+      "filePath": "ios/ExampleiOSApp/project.yml",
+      "contentHash": "00705f7d432d265d42566acbc9063a4ee21b1aba8a163aca9e28316a7c5ff6e0",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 30,
+      "hasStructuralAnalysis": true
+    },
+    "ios/README.md": {
+      "filePath": "ios/README.md",
+      "contentHash": "760928405cfbcfcaeb7113803f1f4688ff1da6ea1fd66e706e8f9181ab744f99",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 74,
+      "hasStructuralAnalysis": true
+    },
+    "java/ExampleONNX.java": {
+      "filePath": "java/ExampleONNX.java",
+      "contentHash": "70d10d08ed2ff9d6fe6c453ebd5d7d92e1816a757ec495764bcca4f9f2a25cb2",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 184,
+      "hasStructuralAnalysis": false
+    },
+    "java/Helper.java": {
+      "filePath": "java/Helper.java",
+      "contentHash": "c30edb530b4e317c87047cd0369a1ccf2fca90b82407f6666ed641c89c767627",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 955,
+      "hasStructuralAnalysis": false
+    },
+    "java/README.md": {
+      "filePath": "java/README.md",
+      "contentHash": "c44b19571245d92b6955b813739ae93b9a4c498e2cec02f211cfb4047d60a928",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 138,
+      "hasStructuralAnalysis": true
+    },
+    "java/pom.xml": {
+      "filePath": "java/pom.xml",
+      "contentHash": "4e49f8cd7d283c9d7cecb4966ddb5dc74ff67728897f1fee1def2b2d5bce9585",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 111,
+      "hasStructuralAnalysis": false
+    },
+    "nodejs/README.md": {
+      "filePath": "nodejs/README.md",
+      "contentHash": "d466cd50d436f89047dce3ddd72e0de03683dd52944c330119baa450d49955ed",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 141,
+      "hasStructuralAnalysis": true
+    },
+    "nodejs/example_onnx.js": {
+      "filePath": "nodejs/example_onnx.js",
+      "contentHash": "4fe23038ccbc5c3af1ddba7a6cdbe2bf033caeb38d14a28088025e82b9204af9",
+      "functions": [
+        {
+          "name": "parseArgs",
+          "params": [],
+          "exported": false,
+          "lineCount": 41
+        },
+        {
+          "name": "main",
+          "params": [],
+          "exported": false,
+          "lineCount": 56
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "fs",
+          "specifiers": [
+            "fs"
+          ]
+        },
+        {
+          "source": "path",
+          "specifiers": [
+            "path"
+          ]
+        },
+        {
+          "source": "url",
+          "specifiers": [
+            "fileURLToPath"
+          ]
+        },
+        {
+          "source": "./helper.js",
+          "specifiers": [
+            "loadTextToSpeech",
+            "loadVoiceStyle",
+            "timer",
+            "writeWavFile",
+            "sanitizeFilename"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 120,
+      "hasStructuralAnalysis": true
+    },
+    "nodejs/helper.js": {
+      "filePath": "nodejs/helper.js",
+      "contentHash": "073f028cac7d6bdb0fedc3969e61cf5ef0b0b51734f89693b2b1346b687f41c5",
+      "functions": [
+        {
+          "name": "lengthToMask",
+          "params": [
+            "lengths"
+          ],
+          "exported": false,
+          "lineCount": 12
+        },
+        {
+          "name": "getLatentMask",
+          "params": [
+            "wavLengths",
+            "baseChunkSize",
+            "chunkCompressFactor"
+          ],
+          "exported": false,
+          "lineCount": 7
+        },
+        {
+          "name": "loadOnnx",
+          "params": [
+            "onnxPath",
+            "opts"
+          ],
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "loadOnnxAll",
+          "params": [
+            "onnxDir",
+            "opts"
+          ],
+          "exported": false,
+          "lineCount": 15
+        },
+        {
+          "name": "loadCfgs",
+          "params": [
+            "onnxDir"
+          ],
+          "exported": false,
+          "lineCount": 5
+        },
+        {
+          "name": "loadTextProcessor",
+          "params": [
+            "onnxDir"
+          ],
+          "exported": false,
+          "lineCount": 5
+        },
+        {
+          "name": "loadVoiceStyle",
+          "params": [
+            "voiceStylePaths"
+          ],
+          "exported": true,
+          "lineCount": 41
+        },
+        {
+          "name": "loadTextToSpeech",
+          "params": [
+            "onnxDir"
+          ],
+          "exported": true,
+          "lineCount": 15
+        },
+        {
+          "name": "arrayToTensor",
+          "params": [
+            "array",
+            "dims"
+          ],
+          "exported": false,
+          "lineCount": 5
+        },
+        {
+          "name": "intArrayToTensor",
+          "params": [
+            "array",
+            "dims"
+          ],
+          "exported": false,
+          "lineCount": 4
+        },
+        {
+          "name": "writeWavFile",
+          "params": [
+            "filename",
+            "audioData",
+            "sampleRate"
+          ],
+          "exported": true,
+          "lineCount": 37
+        },
+        {
+          "name": "timer",
+          "params": [
+            "name",
+            "fn"
+          ],
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "sanitizeFilename",
+          "params": [
+            "text",
+            "maxLen"
+          ],
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "chunkText",
+          "params": [
+            "text"
+          ],
+          "exported": false,
+          "lineCount": 38
+        }
+      ],
+      "classes": [
+        {
+          "name": "UnicodeProcessor",
+          "methods": [
+            "constructor",
+            "_preprocessText",
+            "_textToUnicodeValues",
+            "_getTextMask",
+            "call"
+          ],
+          "properties": [],
+          "exported": false,
+          "lineCount": 116
+        },
+        {
+          "name": "Style",
+          "methods": [
+            "constructor"
+          ],
+          "properties": [],
+          "exported": false,
+          "lineCount": 6
+        },
+        {
+          "name": "TextToSpeech",
+          "methods": [
+            "constructor",
+            "sampleNoisyLatent",
+            "_infer",
+            "call",
+            "batch"
+          ],
+          "properties": [],
+          "exported": false,
+          "lineCount": 161
+        }
+      ],
+      "imports": [
+        {
+          "source": "fs",
+          "specifiers": [
+            "fs"
+          ]
+        },
+        {
+          "source": "path",
+          "specifiers": [
+            "path"
+          ]
+        },
+        {
+          "source": "url",
+          "specifiers": [
+            "fileURLToPath"
+          ]
+        },
+        {
+          "source": "onnxruntime-node",
+          "specifiers": [
+            "* as ort"
+          ]
+        }
+      ],
+      "exports": [
+        "loadVoiceStyle",
+        "loadTextToSpeech",
+        "writeWavFile",
+        "timer",
+        "sanitizeFilename"
+      ],
+      "totalLines": 560,
+      "hasStructuralAnalysis": true
+    },
+    "nodejs/package.json": {
+      "filePath": "nodejs/package.json",
+      "contentHash": "f91a5a18f6555c9122cd8c25c4696f307232cb4e3c808dc36924e5d0b292a777",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 27,
+      "hasStructuralAnalysis": true
+    },
+    "py/README.md": {
+      "filePath": "py/README.md",
+      "contentHash": "69fa585c656072b2f6c4814b63d15fda7525c6dcc0393678980cd8b5282638c2",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 146,
+      "hasStructuralAnalysis": true
+    },
+    "py/example_onnx.py": {
+      "filePath": "py/example_onnx.py",
+      "contentHash": "2ef5371dc02b9425b130ecc480abeb4714781fabe2059e4f9c68dd5e546dec49",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 117,
+      "hasStructuralAnalysis": false
+    },
+    "py/example_pypi.py": {
+      "filePath": "py/example_pypi.py",
+      "contentHash": "69bd8d7add75b82a3c851e0e31a6ee02d25bacdada45c347c6d45dfdcb9af7ad",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 17,
+      "hasStructuralAnalysis": false
+    },
+    "py/helper.py": {
+      "filePath": "py/helper.py",
+      "contentHash": "b14b1da8a018aa4db6ca8cbb927c32590bfc889b49116ea344c56e8351d94279",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 430,
+      "hasStructuralAnalysis": false
+    },
+    "py/pyproject.toml": {
+      "filePath": "py/pyproject.toml",
+      "contentHash": "3babd598767f1223812c19cc15e75d61ac6b25e158cf4e353c831cd3f535b2a0",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 21,
+      "hasStructuralAnalysis": true
+    },
+    "py/requirements.txt": {
+      "filePath": "py/requirements.txt",
+      "contentHash": "90c209155982db56f348b021b73ead0794e691ebf387416890024457ef1e2701",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 6,
+      "hasStructuralAnalysis": false
+    },
+    "rust/Cargo.toml": {
+      "filePath": "rust/Cargo.toml",
+      "contentHash": "cef142975de4f9edb1b548e5a8263c6d5c728ddd5d5c19c180572d26a1560815",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 44,
+      "hasStructuralAnalysis": true
+    },
+    "rust/README.md": {
+      "filePath": "rust/README.md",
+      "contentHash": "5e5c9dfe0f9059f87eee872f5294d2ab1d85efe8c208a68097e73f26dad43656",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 147,
+      "hasStructuralAnalysis": true
+    },
+    "rust/src/example_onnx.rs": {
+      "filePath": "rust/src/example_onnx.rs",
+      "contentHash": "b895a76f3cd83fdb4e681c479839fb6bc49b09bb3c2b90d78c8086168dd76305",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 145,
+      "hasStructuralAnalysis": false
+    },
+    "rust/src/helper.rs": {
+      "filePath": "rust/src/helper.rs",
+      "contentHash": "05153fd6c7b67b6a4948ed257f9ccc4caa69fda162044fe2970658ee699aba70",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 839,
+      "hasStructuralAnalysis": false
+    },
+    "swift/Package.resolved": {
+      "filePath": "swift/Package.resolved",
+      "contentHash": "734a7c1d4c0bf86653432709f0c793f2b0d1e2501db6510230a4df7a90326f1c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 15,
+      "hasStructuralAnalysis": false
+    },
+    "swift/Package.swift": {
+      "filePath": "swift/Package.swift",
+      "contentHash": "af998d73de81ec37835a46d01ccffd073d818a21f0b61c45e9cb6db7038b6af1",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 23,
+      "hasStructuralAnalysis": false
+    },
+    "swift/README.md": {
+      "filePath": "swift/README.md",
+      "contentHash": "d4267ea01080c567ef3acf43e02e3eb569dc637b4415016ab1839b69d939a54f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 117,
+      "hasStructuralAnalysis": true
+    },
+    "swift/Sources/ExampleONNX.swift": {
+      "filePath": "swift/Sources/ExampleONNX.swift",
+      "contentHash": "d1892fccd85e6a70eda0c3a3482b2067eabf694c4bdd0d0cdc4d9a30bb3ef9c7",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 164,
+      "hasStructuralAnalysis": false
+    },
+    "swift/Sources/Helper.swift": {
+      "filePath": "swift/Sources/Helper.swift",
+      "contentHash": "6e51107a0e0e9c9f34336f1b0574a905db6647ffb4600d7523915d0f2b23c6b6",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 836,
+      "hasStructuralAnalysis": false
+    },
+    "test_all.sh": {
+      "filePath": "test_all.sh",
+      "contentHash": "a2f37ea36a73da0198eb404b3bae492852105f7e377c04872a7bc58ef819693a",
+      "functions": [
+        {
+          "name": "show_stats",
+          "params": [],
+          "exported": false,
+          "lineCount": 29
+        },
+        {
+          "name": "run_test",
+          "params": [],
+          "exported": false,
+          "lineCount": 30
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 363,
+      "hasStructuralAnalysis": true
+    },
+    "web/README.md": {
+      "filePath": "web/README.md",
+      "contentHash": "81da9963b427f4f3c5b742e4c1b131f1409922d2d6da3038b637808891e42c54",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 118,
+      "hasStructuralAnalysis": true
+    },
+    "web/helper.js": {
+      "filePath": "web/helper.js",
+      "contentHash": "a8200d50e2eabeb18c777b218ecb5214fd33fb623477e8b8378b4696179d125a",
+      "functions": [
+        {
+          "name": "isValidLang",
+          "params": [
+            "lang"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "loadVoiceStyle",
+          "params": [
+            "voiceStylePaths"
+          ],
+          "exported": true,
+          "lineCount": 49
+        },
+        {
+          "name": "loadCfgs",
+          "params": [
+            "onnxDir"
+          ],
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "loadTextProcessor",
+          "params": [
+            "onnxDir"
+          ],
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "loadOnnx",
+          "params": [
+            "onnxPath",
+            "options"
+          ],
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "loadTextToSpeech",
+          "params": [
+            "onnxDir"
+          ],
+          "exported": true,
+          "lineCount": 33
+        },
+        {
+          "name": "chunkText",
+          "params": [
+            "text"
+          ],
+          "exported": false,
+          "lineCount": 38
+        },
+        {
+          "name": "writeWavFile",
+          "params": [
+            "audioData",
+            "sampleRate"
+          ],
+          "exported": true,
+          "lineCount": 44
+        }
+      ],
+      "classes": [
+        {
+          "name": "UnicodeProcessor",
+          "methods": [
+            "constructor",
+            "call",
+            "preprocessText",
+            "getTextMask",
+            "lengthToMask"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 124
+        },
+        {
+          "name": "Style",
+          "methods": [
+            "constructor"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "TextToSpeech",
+          "methods": [
+            "constructor",
+            "_infer",
+            "call",
+            "batch",
+            "sampleNoisyLatent",
+            "lengthToMask"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 205
+        }
+      ],
+      "imports": [
+        {
+          "source": "onnxruntime-web",
+          "specifiers": [
+            "* as ort"
+          ]
+        }
+      ],
+      "exports": [
+        "AVAILABLE_LANGS",
+        "isValidLang",
+        "UnicodeProcessor",
+        "Style",
+        "TextToSpeech",
+        "loadVoiceStyle",
+        "loadCfgs",
+        "loadTextProcessor",
+        "loadOnnx",
+        "loadTextToSpeech",
+        "writeWavFile"
+      ],
+      "totalLines": 562,
+      "hasStructuralAnalysis": true
+    },
+    "web/index.html": {
+      "filePath": "web/index.html",
+      "contentHash": "bca0d0097c38fb25175fd0af13cbc9204a25be6ef4f442153dd4dc4119fae8fa",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 122,
+      "hasStructuralAnalysis": false
+    },
+    "web/main.js": {
+      "filePath": "web/main.js",
+      "contentHash": "084e8392dc3f44ebb3c6f2939a250fc66f74f54363410ad6022613b39053e55c",
+      "functions": [
+        {
+          "name": "getFilenameFromPath",
+          "params": [
+            "path"
+          ],
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "showStatus",
+          "params": [
+            "message"
+          ],
+          "exported": false,
+          "lineCount": 9
+        },
+        {
+          "name": "showError",
+          "params": [
+            "message"
+          ],
+          "exported": false,
+          "lineCount": 4
+        },
+        {
+          "name": "hideError",
+          "params": [],
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "showBackendBadge",
+          "params": [],
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "loadStyleFromJSON",
+          "params": [
+            "stylePath"
+          ],
+          "exported": false,
+          "lineCount": 9
+        },
+        {
+          "name": "initializeModels",
+          "params": [],
+          "exported": false,
+          "lineCount": 52
+        },
+        {
+          "name": "generateSpeech",
+          "params": [],
+          "exported": false,
+          "lineCount": 116
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "./helper.js",
+          "specifiers": [
+            "loadTextToSpeech",
+            "loadVoiceStyle",
+            "writeWavFile"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 292,
+      "hasStructuralAnalysis": true
+    },
+    "web/package.json": {
+      "filePath": "web/package.json",
+      "contentHash": "67d3759ab50cf2baa1cde83b656c8ce8452ae03b847d56f4beb1857e7372f18d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 22,
+      "hasStructuralAnalysis": true
+    },
+    "web/style.css": {
+      "filePath": "web/style.css",
+      "contentHash": "d4f6df8ed50ca0596948a526e35c2130360317321fc2cc5ee22e61d14679c544",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 454,
+      "hasStructuralAnalysis": false
+    },
+    "web/vite.config.js": {
+      "filePath": "web/vite.config.js",
+      "contentHash": "4bcce634c4a601ffa59d54c61856fa5f5c02be0d2380323dcd3e3dde71b42683",
+      "functions": [
+        {
+          "name": "serveRootAssets",
+          "params": [],
+          "exported": false,
+          "lineCount": 24
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "node:fs",
+          "specifiers": [
+            "createReadStream",
+            "existsSync",
+            "statSync"
+          ]
+        },
+        {
+          "source": "node:path",
+          "specifiers": [
+            "path"
+          ]
+        },
+        {
+          "source": "node:url",
+          "specifiers": [
+            "fileURLToPath"
+          ]
+        },
+        {
+          "source": "vite",
+          "specifiers": [
+            "defineConfig"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 47,
+      "hasStructuralAnalysis": true
+    }
+  }
+}
